@@ -1,1 +1,122 @@
 <!-- tools.html content placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Useful Tools – GoSaigon</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #1a237e;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .tool-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .tool-box {
+      flex: 1 1 300px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .tool-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .tool-title {
+      font-size: 1.3rem;
+      color: #1a237e;
+      margin-bottom: 8px;
+    }
+    .tool-desc {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      border-radius: 8px;
+    }
+    .translator-box {
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧰 Useful Tools for Saigon Visitors</h1>
+    <p>Translate signs, convert money, and check the weather while exploring Ho Chi Minh City.</p>
+
+    <div class="tool-grid">
+
+      <!-- Translator -->
+      <div class="tool-box translator-box">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-title">Live Translator</div>
+        <div class="tool-desc">Translate any language into Vietnamese instantly.</div>
+        <div id="google_translate_element"></div>
+      </div>
+
+      <!-- Currency Converter -->
+      <div class="tool-box">
+        <div class="tool-icon">💱</div>
+        <div class="tool-title">Currency Converter</div>
+        <div class="tool-desc">Convert currencies from anywhere into VND.</div>
+        <iframe src="https://www.currency.wiki/widgets/converter?from=USD&to=VND&amount=1&border=true&primary=%231a237e&secondary=%23ffffff"></iframe>
+      </div>
+
+      <!-- Weather Widget -->
+      <div class="tool-box">
+        <div class="tool-icon">🌤️</div>
+        <div class="tool-title">Saigon Weather</div>
+        <div class="tool-desc">See current and forecasted weather for Ho Chi Minh City.</div>
+        <!-- WeatherWidget.io Embed -->
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n10d82n106d63/ho-chi-minh-city/" data-label_1="HO CHI MINH" data-label_2="WEATHER" data-theme="original" >HO CHI MINH WEATHER</a>
+        <script>
+          !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){
+              js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+              fjs.parentNode.insertBefore(js,fjs);
+            }
+          }(document,'script','weatherwidget-io-js');
+        </script>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'vi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>
+</body>
+</html>
