@@ -1,77 +1,225 @@
-<!-- tips.html content placeholder -->
-<table class="transport-table">
-  <thead>
-    <tr>
-      <th>Service</th>
-      <th>Logo</th>
-      <th>Base Fare (VND)</th>
-      <th>Price per km (VND)</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Grab (Bike)</td>
-      <td><img src="images/logos/grab.png" alt="Grab Logo" height="32"></td>
-      <td>12,000</td>
-      <td>4,000</td>
-      <td>Price varies by demand</td>
-    </tr>
-    <tr>
-      <td>Grab (Car)</td>
-      <td><img src="images/logos/grab.png" alt="Grab Logo" height="32"></td>
-      <td>25,000</td>
-      <td>8,500</td>
-      <td>Higher at peak times</td>
-    </tr>
-    <tr>
-      <td>Be (Bike)</td>
-      <td><img src="images/logos/be.png" alt="Be Logo" height="32"></td>
-      <td>11,000</td>
-      <td>3,900</td>
-      <td>Cheaper during promotions</td>
-    </tr>
-    <tr>
-      <td>Be (Car)</td>
-      <td><img src="images/logos/be.png" alt="Be Logo" height="32"></td>
-      <td>23,000</td>
-      <td>8,000</td>
-      <td>Fast and clean service</td>
-    </tr>
-    <tr>
-      <td>Xanh SM (Bike)</td>
-      <td><img src="images/logos/xanhsm.png" alt="Xanh SM Logo" height="32"></td>
-      <td>12,000</td>
-      <td>4,000</td>
-      <td>Electric bike option</td>
-    </tr>
-    <tr>
-      <td>Xanh SM (Car)</td>
-      <td><img src="images/logos/xanhsm.png" alt="Xanh SM Logo" height="32"></td>
-      <td>24,000</td>
-      <td>8,000</td>
-      <td>Eco-friendly fleet</td>
-    </tr>
-    <tr>
-      <td>Saigon Bus</td>
-      <td><img src="images/logos/bus.png" alt="Saigon Bus Logo" height="32"></td>
-      <td>7,000</td>
-      <td>Flat fare</td>
-      <td>Most routes are citywide and affordable</td>
-    </tr>
-    <tr>
-      <td>Vinasun Taxi</td>
-      <td><img src="images/logos/vinasun.png" alt="Vinasun Logo" height="32"></td>
-      <td>12,000</td>
-      <td>15,000</td>
-      <td>Reliable, metered, app-supported</td>
-    </tr>
-    <tr>
-      <td>Mai Linh Taxi</td>
-      <td><img src="images/logos/mailinh.png" alt="Mai Linh Logo" height="32"></td>
-      <td>12,000</td>
-      <td>15,000</td>
-      <td>Accepts cash and cards</td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation in Saigon | GoSaigon.org</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom styles to match gosaigon.org theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* A light grey background */
+        }
+
+        :root {
+            --teal-primary: #008080;
+            --orange-accent: #FFA500;
+            --dark-gray-text: #333333;
+        }
+
+        .text-teal {
+            color: var(--teal-primary);
+        }
+        
+        .bg-teal {
+            background-color: var(--teal-primary);
+        }
+
+        .text-orange {
+            color: var(--orange-accent);
+        }
+        
+        .border-teal {
+            border-color: var(--teal-primary);
+        }
+
+        /* Style for the active nav link */
+        .nav-link-active {
+            color: var(--orange-accent);
+            font-weight: 700;
+        }
+
+        /* Class for the card containers */
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            overflow: hidden; /* Ensures the inner table respects the border radius */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem; /* 36px */
+            font-weight: 800;
+            color: var(--teal-primary);
+            margin-bottom: 1.5rem; /* 24px */
+            padding-top: 3rem; /* Add space between sections */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal">GoSaigon.org</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-orange duration-300">Home</a>
+                <a href="attractions.html" class="text-gray-600 hover:text-orange duration-300">Attractions</a>
+                <a href="culture.html" class="text-gray-600 hover:text-orange duration-300">Culture</a>
+                <a href="transportation.html" class="nav-link-active">Transportation</a>
+                <a href="food.html" class="text-gray-600 hover:text-orange duration-300">Food</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-teal focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange">Home</a>
+            <a href="attractions.html" class="block py-2 text-gray-600 hover:text-orange">Attractions</a>
+            <a href="culture.html" class="block py-2 text-gray-600 hover:text-orange">Culture</a>
+            <a href="transportation.html" class="block py-2 nav-link-active">Transportation</a>
+            <a href="food.html" class="block py-2 text-gray-600 hover:text-orange">Food</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 md:px-6 py-12">
+
+        <!-- Page Title and Intro -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-teal mb-4">Getting Around Saigon & Beyond</h1>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                Navigating Ho Chi Minh City is easier than ever. From local ride-hailing apps to the new metro and ferries for island getaways, here’s your complete guide to choosing the best way to travel.
+            </p>
+        </div>
+        
+        <!-- Transportation Table Card -->
+        <div class="card">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-600">
+                    <thead class="text-xs text-teal uppercase bg-teal/10">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Service</th>
+                            <th scope="col" class="px-6 py-4">Logo</th>
+                            <th scope="col" class="px-6 py-4">Base Fare (VND)</th>
+                            <th scope="col" class="px-6 py-4">Price per km (VND)</th>
+                            <th scope="col" class="px-6 py-4">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Ride-hailing and Taxis -->
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Grab (Bike)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/28a745/white?text=Grab" alt="Grab Logo" class="h-8 rounded"></td><td class="px-6 py-4">~12,500</td><td class="px-6 py-4">~4,300</td><td class="px-6 py-4">Best for solo travel; prices surge with high demand.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Grab (Car)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/28a745/white?text=Grab" alt="Grab Logo" class="h-8 rounded"></td><td class="px-6 py-4">~29,000</td><td class="px-6 py-4">~10,000</td><td class="px-6 py-4">Comfortable and widely available. 4-seater and 7-seater options.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Gojek (Bike)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/000000/white?text=Gojek" alt="Gojek Logo" class="h-8 rounded"></td><td class="px-6 py-4">~13,000</td><td class="px-6 py-4">~4,000</td><td class="px-6 py-4">Main competitor to Grab; frequent promotions. Also offers food delivery.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Be (Bike)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/ffc107/black?text=Be" alt="Be Logo" class="h-8 rounded"></td><td class="px-6 py-4">~12,000</td><td class="px-6 py-4">~4,100</td><td class="px-6 py-4">Strong local competitor, known for good promotions.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Be (Car)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/ffc107/black?text=Be" alt="Be Logo" class="h-8 rounded"></td><td class="px-6 py-4">~28,000</td><td class="px-6 py-4">~9,500</td><td class="px-6 py-4">Clean cars and professional service.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Xanh SM (Bike)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/00a651/white?text=Xanh+SM" alt="Xanh SM Logo" class="h-8 rounded"></td><td class="px-6 py-4">~14,000</td><td class="px-6 py-4">~4,800</td><td class="px-6 py-4">All-electric bike fleet, quiet and eco-friendly ride.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Xanh SM (Car)</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/00a651/white?text=Xanh+SM" alt="Xanh SM Logo" class="h-8 rounded"></td><td class="px-6 py-4">~29,000</td><td class="px-6 py-4">~15,000</td><td class="px-6 py-4">Premium, all-electric VinFast cars. Higher quality and price.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Vinasun Taxi</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/e74c3c/white?text=Vinasun" alt="Vinasun Logo" class="h-8 rounded"></td><td class="px-6 py-4">~12,000</td><td class="px-6 py-4">~16,000</td><td class="px-6 py-4">Reliable metered taxi, can be hailed or booked via app.</td></tr>
+                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Mai Linh Taxi</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/27ae60/white?text=Mai+Linh" alt="Mai Linh Logo" class="h-8 rounded"></td><td class="px-6 py-4">~12,000</td><td class="px-6 py-4">~16,500</td><td class="px-6 py-4">Large, reputable fleet. Distinctive green color.</td></tr>
+                        <tr class="bg-white hover:bg-gray-50"><td class="px-6 py-4 font-bold text-gray-900">Public Bus</td><td class="px-6 py-4"><img src="https://placehold.co/100x32/3498db/white?text=Saigon+Bus" alt="Saigon Bus Logo" class="h-8 rounded"></td><td class="px-6 py-4">5,000 - 7,000</td><td class="px-6 py-4">Flat Fare</td><td class="px-6 py-4">Most affordable option. Use the "BusMap" app to navigate routes.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-4">*Fares are estimates as of 2024/2025 and can vary. Check the app for the final price before booking.</p>
+        
+        <!-- NEW: River & Sea Travel Section -->
+        <h2 class="section-title">River & Sea Travel</h2>
+        <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Saigon Waterbus -->
+            <div class="card p-6 flex flex-col">
+                <i class="fa-solid fa-water text-4xl text-orange mb-4"></i>
+                <h3 class="text-xl font-bold text-teal mb-2">Saigon Waterbus</h3>
+                <p class="text-gray-600 mb-4 flex-grow">A scenic public ferry along the Saigon River. It's a fantastic way to see the city skyline and escape the traffic. The main route connects Bach Dang Pier (D1) with Linh Dong (Thu Duc City).</p>
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                    <p class="font-semibold text-gray-700">Price: <span class="font-normal">~15,000 VND per trip</span></p>
+                    <p class="font-semibold text-gray-700">Best for: <span class="font-normal">Sightseeing & relaxed travel</span></p>
+                </div>
+            </div>
+            <!-- Vung Tau Ferry -->
+            <div class="card p-6 flex flex-col">
+                <i class="fa-solid fa-ferry text-4xl text-orange mb-4"></i>
+                <h3 class="text-xl font-bold text-teal mb-2">Ferry to Vung Tau</h3>
+                <p class="text-gray-600 mb-4 flex-grow">For a quick beach getaway, the high-speed ferry is the most comfortable and scenic option. The journey takes about 2 hours, offering great views as you leave the city.</p>
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                    <p class="font-semibold text-gray-700">Operator: <span class="font-normal">Greenlines DP</span></p>
+                    <p class="font-semibold text-gray-700">Departs from: <span class="font-normal">Bach Dang Pier, D1</span></p>
+                </div>
+            </div>
+            <!-- Con Dao Islands -->
+            <div class="card p-6 flex flex-col">
+                <i class="fa-solid fa-ship text-4xl text-orange mb-4"></i>
+                <h3 class="text-xl font-bold text-teal mb-2">Getting to Con Dao Islands</h3>
+                <p class="text-gray-600 mb-4 flex-grow">Reaching this stunning archipelago requires a multi-step journey. The fastest way is a direct flight from HCMC. Alternatively, take a bus to Vung Tau or Soc Trang, then a high-speed ferry (4-6 hours) to the island.</p>
+                 <div class="mt-auto pt-4 border-t border-gray-100">
+                    <p class="font-semibold text-gray-700">Sea Route: <span class="font-normal">Bus + Ferry (Con Dao Express)</span></p>
+                    <p class="font-semibold text-gray-700">Fastest Route: <span class="font-normal">Direct Flight (SGN Airport)</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: HCMC Metro Section -->
+        <h2 class="section-title">The Future is Here: Saigon's Metro</h2>
+        <div class="card p-6 md:p-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Metro Text Content -->
+                <div>
+                    <i class="fa-solid fa-train-subway text-4xl text-orange mb-4"></i>
+                    <h3 class="text-2xl font-bold text-teal mb-3">Line 1: Now Operational!</h3>
+                    <p class="text-gray-600 mb-4">
+                        The first line of the HCMC Metro, Line 1, is now open! It connects the city center with the eastern suburbs, providing a fast, modern, and air-conditioned way to travel. The line runs from Ben Thanh station in District 1 to Suoi Tien Terminal in Thu Duc City.
+                    </p>
+                    <h4 class="text-xl font-bold text-teal mb-3 mt-6">Future Expansion</h4>
+                    <p class="text-gray-600">
+                        Line 1 is just the beginning. The master plan for Ho Chi Minh City includes a network of 8 metro lines, monorails, and light rail routes that will eventually connect all corners of the city, transforming public transport and making it easier than ever to explore.
+                    </p>
+                </div>
+                <!-- Metro Map -->
+                <div class="w-full">
+                    <a href="https://futuresoutheastasia.com/wp-content/uploads/2023/12/hcmc-metro-map-fsea.jpg" target="_blank">
+                        <img src="https://futuresoutheastasia.com/wp-content/uploads/2023/12/hcmc-metro-map-fsea.jpg" alt="HCMC Metro Future Network Map by Future Southeast Asia" class="rounded-lg shadow-md w-full h-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x400/eeeeee/cccccc?text=Metro+Map+Unavailable';">
+                    </a>
+                    <p class="text-center text-xs text-gray-500 mt-2">A diagram of the planned HCMC Metro network. Click to enlarge. (Map by Future Southeast Asia)</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2024 GoSaigon.org. All Rights Reserved.</p>
+            <p class="text-sm">Your guide to navigating and enjoying Ho Chi Minh City.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
