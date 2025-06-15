@@ -1,103 +1,1058 @@
-<!-- attractions.html content placeholder -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All 22 Districts of Ho Chi Minh City – GoSaigon.org</title>
-  <meta name="description" content="Explore Ho Chi Minh City's 22 districts with highlights, local attractions, transportation tips, and an interactive map for expats and tourists." />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoSaigon.org - Attractions in Ho Chi Minh City & Beyond</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background for futuristic feel */
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            @apply text-4xl md:text-5xl font-bold text-center mb-12 relative;
+            background: linear-gradient(90deg, #8a2be2, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #00ffff);
+            border-radius: 2px;
+        }
+        .nav-link {
+            @apply text-lg font-medium text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-4 py-2 rounded-md;
+        }
+        .card {
+            @apply bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-start transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-transparent hover:border-cyan-500;
+        }
+        .district-heading {
+            @apply text-3xl font-semibold text-purple-400 mb-6 mt-8;
+        }
+        .place-link {
+            @apply text-cyan-400 hover:text-cyan-300 hover:underline transition-colors duration-200;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8a2be2;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ffff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-  <!-- Navigation -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo"><a href="index.html">GoSaigon</a></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="attractions.html">Attractions</a></li>
-        <li><a href="culture.html">Culture</a></li>
-        <li><a href="cuisine.html">Cuisine</a></li>
-        <li><a href="tips.html">Tips</a></li>
-        <li><a href="tools.html">Tools</a></li>
-        <li><a href="megacity.html">Megacity</a></li>
-        <li><a href="healthcare.html">Healthcare</a></li>
-        <li><a href="living.html">Living</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-md py-4 sticky top-0 z-50">
+        <nav class="container flex flex-wrap justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-white bg-gradient-to-r from-purple-500 to-cyan-400 p-2 rounded-lg leading-none transform hover:scale-105 transition-transform duration-300">GoSaigon.org</a>
+            <button id="menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <div id="nav-links" class="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 w-full md:w-auto items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="attractions.html" class="nav-link">Attractions</a>
+                <a href="culture.html" class="nav-link">Culture</a>
+                <a href="cuisine.html" class="nav-link">Cuisine</a>
+                <a href="tips.html" class="nav-link">Tips</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="megacity.html" class="nav-link">Megacity</a>
+                <a href="healthcare.html" class="nav-link">Healthcare</a>
+                <a href="living.html" class="nav-link">Living</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Page Title -->
-  <main class="content">
-    <section class="page-title">
-      <h1>🗺️ Explore All 22 Districts of Ho Chi Minh City</h1>
-      <p>From downtown energy to riverside peace, every district has a vibe worth discovering.</p>
-    </section>
+    <!-- Main Content -->
+    <main class="py-16 bg-gray-900">
+        <div class="container">
+            <h1 class="section-title animate-fade-in">Top Attractions in Ho Chi Minh City & Beyond</h1>
+            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto animate-fade-in animate-delay-1">
+                Discover the most interesting and vibrant places across Saigon's diverse districts and the surrounding metropolitan areas. Click on the links to see reviews and locate them on Google Maps!
+            </p>
 
-    <!-- Map Embed -->
-    <section class="map-embed">
-      <h2>📍 Interactive District Map</h2>
-      <p>Use this map to locate each district, plan your trips, and estimate motorbike taxi costs.</p>
-      <iframe src="https://www.google.com/maps/d/embed?mid=1lxx5hcLJZb7IOMBrs_2WUL-bN4E&hl=en" width="100%" height="480" style="border:0;" allowfullscreen></iframe>
-    </section>
+            <!-- HCMC - 22 Official Districts -->
+            <h2 class="district-heading animate-fade-in animate-delay-2">HCMC – 22 Official Districts</h2>
 
-    <!-- Transportation Info -->
-    <section class="transport-info">
-      <h2>🛵 Cost of Motorbike Taxis in Saigon</h2>
-      <p>Motorbike taxis (GrabBike, Gojek) are the fastest way to explore Saigon. Here’s what you can expect to pay:</p>
-      <ul>
-        <li>Short rides (under 3 km): 12,000–20,000 VND ($0.50–$0.80)</li>
-        <li>Medium rides (3–7 km): 20,000–40,000 VND ($0.80–$1.60)</li>
-        <li>Longer trips (7–15 km): 40,000–80,000 VND ($1.60–$3.20)</li>
-      </ul>
-      <p>💡 Tip: Prices may rise during rush hour (7–9 AM, 5–7 PM) or rainy weather.</p>
-    </section>
+            <!-- District 1 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 1</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Notre Dame Cathedral Basilica of Saigon</h4>
+                        <p class="text-gray-300 text-sm mb-2">A magnificent neo-Romanesque cathedral built by the French colonists.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Nhà thờ Đức Bà Sài Gòn,District 1,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Central Post Office</h4>
+                        <p class="text-gray-300 text-sm mb-2">An architectural masterpiece designed by Gustave Eiffel, still a functioning post office.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bưu điện Trung tâm Sài Gòn,District 1,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ben Thanh Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A bustling market offering everything from local food to souvenirs and clothes.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Bến Thành,District 1,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Independence Palace (Reunification Palace)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historic landmark, symbolizing the end of the Vietnam War.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Dinh Độc Lập,District 1,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Bui Vien Walking Street</h4>
+                        <p class="text-gray-300 text-sm mb-2">Saigon's famous backpacker street, alive with bars, clubs, and street food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Phố đi bộ Bùi Viện,District 1,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ho Chi Minh City Museum</h4>
+                        <p class="text-gray-300 text-sm mb-2">Learn about the city's history in a beautiful French colonial building.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bảo tàng Thành phố Hồ Chí Minh,District 1,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- District Listings -->
-    <section class="district-list">
-      <h2>🌆 District Highlights</h2>
-      <!-- Include one section per district -->
-      <div class="district-columns">
-        <ul>
-          <li><strong>District 1</strong> – Landmarks, nightlife, cafés</li>
-          <li><strong>District 3</strong> – Vintage homes, street food</li>
-          <li><strong>District 4</strong> – Seafood streets, riverfront</li>
-          <li><strong>District 5</strong> – Chinatown, herbal medicine</li>
-          <li><strong>District 6</strong> – Market life, temples</li>
-          <li><strong>District 7</strong> – Phú Mỹ Hưng, malls, Korean food</li>
-          <li><strong>District 8</strong> – Quiet canals, authentic eats</li>
-          <li><strong>District 10</strong> – Flower markets, local food</li>
-          <li><strong>District 11</strong> – Đầm Sen Park, family fun</li>
-          <li><strong>District 12</strong> – Up-and-coming, local life</li>
-          <li><strong>Gò Vấp</strong> – Budget-friendly, lively culture</li>
-          <li><strong>Phú Nhuận</strong> – Central yet affordable</li>
-          <li><strong>Bình Thạnh</strong> – Vinhomes, chill cafés</li>
-          <li><strong>Tân Bình</strong> – Airport, street BBQs</li>
-          <li><strong>Tân Phú</strong> – Shopping, mid-city comfort</li>
-          <li><strong>Bình Tân</strong> – Suburban malls & workers’ cafés</li>
-          <li><strong>Thủ Đức City</strong> – Tech zone, universities</li>
-          <li><strong>Nhà Bè</strong> – River dining, eco retreats</li>
-          <li><strong>Bình Chánh</strong> – Farms, day trips</li>
-          <li><strong>Củ Chi</strong> – Tunnels, rural homestays</li>
-          <li><strong>Hóc Môn</strong> – Peaceful, bonsai gardens</li>
-          <li><strong>Cần Giờ</strong> – Beaches, seafood, mangroves</li>
-        </ul>
-      </div>
-    </section>
+            <!-- District 3 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 3</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tan Dinh Church (Pink Church)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A stunning pink Catholic church, a popular photo spot.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Nhà thờ Tân Định,District 3,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">War Remnants Museum</h4>
+                        <p class="text-gray-300 text-sm mb-2">A powerful museum detailing the impacts of the Vietnam War.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bảo tàng Chứng tích Chiến tranh,District 3,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Turtle Lake (Hồ Con Rùa)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A popular hangout spot with a monument and street food vendors.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hồ Con Rùa,District 3,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Nguyen Thi Minh Khai Street Cafes</h4>
+                        <p class="text-gray-300 text-sm mb-2">A street lined with charming cafes, perfect for a coffee break.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Nguyễn Thị Minh Khai,District 3,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Le Van Tam Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A green oasis for relaxation and local activities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Lê Văn Tám,District 3,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Di tích lịch sử cấp thành phố Biệt thự 93 Trần Quốc Thảo</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historic villa, significant for its role in Vietnamese history.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Biệt thự 93 Trần Quốc Thảo,District 3,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Affiliate Box -->
-    <section class="affiliate-box">
-      <h3>📲 Want to Explore Like a Local?</h3>
-      <p>Book tours or hire trusted GrabBike drivers through our partner links — explore safely and save time.</p>
-      <a href="https://affiliate.example.com/grab-tours" target="_blank" class="affiliate-button">Book a District Tour →</a>
-    </section>
-  </main>
+            <!-- District 4 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 4</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vinh Khanh Street (Seafood Street)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Famous for its vibrant street food scene, especially fresh seafood.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đường Vĩnh Khánh,District 4,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Khanh Hoi Bridge</h4>
+                        <p class="text-gray-300 text-sm mb-2">Offers great views of the Saigon River and city skyline, especially at night.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cầu Khánh Hội,District 4,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">The Cafe Apartment (near border with D1)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Although technically in D1, it's very close and a popular spot for cafes and shops in an old apartment building.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=The Cafe Apartment,District 4,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Nha Rong Wharf</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historical port where Ho Chi Minh began his journey abroad.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bến Nhà Rồng,District 4,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phuoc Kien Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local pagoda with traditional architecture.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Phước Kiển,District 4,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hoang Dieu Street Food Alley</h4>
+                        <p class="text-gray-300 text-sm mb-2">Another great spot for local street food adventures.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hẻm ăn uống Hoàng Diệu,District 4,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 GoSaigon.org – All Districts. All Tips. All Yours.</p>
-  </footer>
+            <!-- District 5 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 5</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Tay Market (Chợ Lớn)</h4>
+                        <p class="text-gray-300 text-sm mb-2">The central market of Chinatown, bustling with wholesale goods and local life.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Bình Tây,District 5,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thien Hau Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">An ancient Chinese temple dedicated to the sea goddess Mazu.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Bà Thiên Hậu,District 5,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Quang Tri Assembly Hall</h4>
+                        <p class="text-gray-300 text-sm mb-2">One of the five historic Chinese assembly halls in Cholon.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hội quán Quảng Tri,District 5,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Fung Hung Temple (Miếu Phụng Hưng)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A unique temple with a rich history, known for its intricate details.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Miếu Phụng Hưng,District 5,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phuoc An Hoi Quan Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A colorful and highly decorated Cantonese pagoda.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Phước An Hội Quán,District 5,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Traditional Chinese Medicine Street (Hải Thượng Lãn Ông)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Explore the vibrant street where traditional herbal medicines are sold.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đường Hải Thượng Lãn Ông,District 5,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
 
+            <!-- District 6 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 6</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Giac Lam Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">One of the oldest pagodas in HCMC, dating back to the 18th century.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Giác Lâm,District 6,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu Lam Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A spacious park for recreation and local gatherings.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Phú Lâm,District 6,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cho Lon Old Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A lesser-known but authentic market experience in Chinatown.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Lớn cũ,District 6,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Tien Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large local market with diverse goods.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Bình Tiên,District 6,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cay Mai Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">Another historical pagoda with unique architecture.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Cây Mai,District 6,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Linh Son Co Tu Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A quiet temple offering a peaceful escape.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Linh Sơn Cổ Tự,District 6,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- District 7 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 7</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Crescent Mall</h4>
+                        <p class="text-gray-300 text-sm mb-2">A modern shopping mall with international brands and dining options.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Crescent Mall,District 7,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Starlight Bridge (Cầu Ánh Sao)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A beautiful pedestrian bridge with a water-light show at night.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cầu Ánh Sao,District 7,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu My Hung urban area</h4>
+                        <p class="text-gray-300 text-sm mb-2">Explore the modern, well-planned residential and commercial hub.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu đô thị Phú Mỹ Hưng,District 7,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">SECC (Saigon Exhibition and Convention Center)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Host to various international exhibitions and events.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Trung tâm Hội chợ và Triển lãm Sài Gòn,District 7,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Artinus 3D Art Museum</h4>
+                        <p class="text-gray-300 text-sm mb-2">An interactive 3D art museum for fun photos.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bảo tàng tranh 3D Artinus,District 7,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">VivoCity Saigon</h4>
+                        <p class="text-gray-300 text-sm mb-2">Another large shopping mall with diverse retail and entertainment options.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=SC VivoCity,District 7,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- District 8 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 8</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Dong Wharf</h4>
+                        <p class="text-gray-300 text-sm mb-2">A traditional wharf bustling with riverine trade, especially vibrant during Tet.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bến Bình Đông,District 8,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cay Bang Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A serene pagoda with unique architecture, popular among locals.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Cây Bàng,District 8,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Long Hoa Temple</h4>
+                        <p class="text-gray-300 text-sm mb-2">A significant local Buddhist temple.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Long Hoa,District 8,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tien Ong Temple</h4>
+                        <p class="text-gray-300 text-sm mb-2">An ancient temple in the heart of District 8.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đền Tiên Ông,District 8,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Kinh Duong Vuong Street (local shopping)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A lively street for local shopping and eateries.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đường Kinh Dương Vương,District 8,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cho Xom Cui (local market)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Experience a traditional local market with fresh produce and goods.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Xóm Củi,District 8,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- District 10 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 10</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ho Thi Ky Flower Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A vibrant wholesale flower market, especially colorful early in the morning.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ hoa Hồ Thị Kỷ,District 10,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ky Hoa Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A green space popular for exercise and relaxation.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Kỳ Hòa,District 10,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Nguyen Tri Phuong Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large local market offering a variety of goods and fresh food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Nguyễn Tri Phương,District 10,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vietnam Quoc Tu Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A significant Buddhist temple with a towering stupa.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Việt Nam Quốc Tự,District 10,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Crescent Mall Nguyen Kim (Electronics and Shopping)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A shopping center with a focus on electronics and various retail stores.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Trung tâm thương mại Nguyễn Kim,District 10,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Van Hanh Mall</h4>
+                        <p class="text-gray-300 text-sm mb-2">A modern shopping complex with entertainment options.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Trung tâm thương mại Vạn Hạnh,District 10,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- District 11 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 11</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Dam Sen Cultural Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large amusement park with water features, gardens, and entertainment.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Văn hóa Đầm Sen,District 11,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu Tho Stadium</h4>
+                        <p class="text-gray-300 text-sm mb-2">A major sports complex often used for local events and concerts.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sân vận động Phú Thọ,District 11,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ba Thien Hau Pagoda (District 11)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Another temple dedicated to Mazu, with unique architectural details.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Bà Thiên Hậu,District 11,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Lotte Mart Phu Tho</h4>
+                        <p class="text-gray-300 text-sm mb-2">A popular supermarket and shopping center for locals.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte Mart Phú Thọ,District 11,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Chua Ong Bon</h4>
+                        <p class="text-gray-300 text-sm mb-2">A beautiful Chinese temple, offering a glimpse into local religious practices.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Ông Bổn,District 11,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu Tho Racecourse (inactive)</h4>
+                        <p class="text-gray-300 text-sm mb-2">While inactive for racing, it remains a historical landmark and green space.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Trường đua Phú Thọ,District 11,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- District 12 -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">District 12</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">An Phu Dong Tourist Area</h4>
+                        <p class="text-gray-300 text-sm mb-2">A developing area with some recreational spots.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu du lịch An Phú Đông,District 12,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thien An Monastery</h4>
+                        <p class="text-gray-300 text-sm mb-2">A peaceful monastery offering a spiritual retreat.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tu viện Thiên An,District 12,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Chieu Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large local market with a wide range of goods.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Bình Chiểu,District 12,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tran Quang Co Temple</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historic temple with traditional Vietnamese architecture.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đền Trần Quang Cơ,District 12,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu An Garden</h4>
+                        <p class="text-gray-300 text-sm mb-2">A pleasant garden area for relaxation.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu vườn Phú An,District 12,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cong Vien Phu Lam</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local park popular for outdoor activities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Phú Lâm,District 12,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Binh Thanh -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Bình Thạnh District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Landmark 81</h4>
+                        <p class="text-gray-300 text-sm mb-2">Vietnam's tallest building, offering stunning city views, luxury shopping, and dining.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Landmark 81,Binh Thanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Van Thanh Tourist Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A green retreat with lakes, swimming pools, and dining, popular for weekend getaways.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu du lịch Văn Thánh,Binh Thanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Quoi Tourist Village</h4>
+                        <p class="text-gray-300 text-sm mb-2">Offers a traditional Vietnamese village atmosphere with folk performances and food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Làng du lịch Bình Quới,Binh Thanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ba Chieu Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large local market known for its fresh produce and textile stalls.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Bà Chiểu,Binh Thanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Pearl Plaza</h4>
+                        <p class="text-gray-300 text-sm mb-2">A modern commercial complex with shopping, dining, and offices.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pearl Plaza,Binh Thanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tran Hung Dao Statue and Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A prominent statue and adjacent park, a common meeting point.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tượng đài Trần Hưng Đạo,Binh Thanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phu Nhuan -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Phú Nhuận District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phan Xich Long Street</h4>
+                        <p class="text-gray-300 text-sm mb-2">A renowned food street with a vast array of local eateries and cafes.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đường Phan Xích Long,Phu Nhuan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hoang Van Thu Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large public park near the airport, great for walks and local activities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Hoàng Văn Thụ,Phu Nhuan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vinh Nghiem Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A prominent and beautiful Buddhist temple with a tall pagoda tower.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Vĩnh Nghiêm,Phu Nhuan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu Nhuan Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A bustling local market with fresh produce and street food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Phú Nhuận,Phu Nhuan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Le Thi Rieng Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A spacious park with a small lake, popular for exercise and relaxation.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Lê Thị Riêng,Phu Nhuan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ho Chi Minh City Television (HTV)</h4>
+                        <p class="text-gray-300 text-sm mb-2">The headquarters of the city's main television broadcaster.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đài truyền hình TPHCM,Phu Nhuan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Go Vap -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Gò Vấp District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">E-Town Tan Binh</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large office complex and commercial center.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=E-Town Tân Bình,Go Vap District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Lotte Mart Go Vap</h4>
+                        <p class="text-gray-300 text-sm mb-2">A major supermarket and shopping complex for local residents.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte Mart Gò Vấp,Go Vap District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">CityLand Park Hills</h4>
+                        <p class="text-gray-300 text-sm mb-2">A modern residential area with green spaces and amenities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=CityLand Park Hills,Go Vap District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">An Nhon Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A lively local market for daily necessities and street food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ An Nhơn,Go Vap District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Quang Trung Software City (nearby)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Though technically in District 12, it's very close and a major tech hub.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Phần mềm Quang Trung,Go Vap District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Emart Go Vap</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large Korean supermarket, popular for groceries and imported goods.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Emart Gò Vấp,Go Vap District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tan Binh -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Tân Bình District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tan Son Nhat International Airport</h4>
+                        <p class="text-gray-300 text-sm mb-2">The main international gateway to Ho Chi Minh City.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sân bay Tân Sơn Nhất,Tan Binh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hoang Van Thu Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large green park frequently visited by locals for exercise and relaxation.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Hoàng Văn Thụ,Tan Binh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">CT Plaza</h4>
+                        <p class="text-gray-300 text-sm mb-2">A commercial complex with dining, shopping, and entertainment, located near the airport.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=CT Plaza,Tan Binh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tan Binh Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A wholesale market known for textiles and fabrics, popular among local businesses.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Tân Bình,Tan Binh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Parkson CT Plaza (Shopping Center)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Another shopping center offering a variety of retail options.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Parkson CT Plaza,Tan Binh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Giac Vien Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historic Buddhist temple with a serene atmosphere.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Giác Viên,Tan Binh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tan Phu -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Tân Phú District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">AEON Mall Tan Phu Celadon</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large Japanese-style shopping mall with a wide range of shops, restaurants, and entertainment.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=AEON Mall Tân Phú Celadon,Tan Phu District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Dam Sen Water Park (nearby)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Adjacent to Dam Sen Cultural Park, offering water slides and pools.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên nước Đầm Sen,Tan Phu District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cho Hiep Tan (local market)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A lively local market for daily shopping and food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Hiệp Tân,Tan Phu District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phap Hoa Pagoda (Tân Phú)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A quiet Buddhist temple for peaceful reflection.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Pháp Hoa,Tan Phu District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Nguyen Hue book street (nearby)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A vibrant book street in the heart of the city.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đường sách Nguyễn Huệ,Tan Phu District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tuyet Tinh Coc Tan Phu</h4>
+                        <p class="text-gray-300 text-sm mb-2">A scenic spot with a natural rock formation, popular for photography.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tuyệt Tình Cốc Tân Phú,Tan Phu District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Binh Tan -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Bình Tân District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">AEON Mall Binh Tan</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large shopping and entertainment complex serving the western part of the city.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=AEON Mall Bình Tân,Binh Tan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Tri Dong Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A bustling local market with fresh produce and street food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Bình Trị Đông,Binh Tan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Gojek Operations Center (South)</h4>
+                        <p class="text-gray-300 text-sm mb-2">An operational hub for the popular ride-hailing service.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Trung tâm vận hành Gojek,Binh Tan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Truong Tan Buu Temple</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historical temple significant to the local community.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đền thờ Trương Tấn Bửu,Binh Tan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Pou Yuen Industrial Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A major industrial complex, a key employment center in the area.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu công nghiệp Pou Yuen,Binh Tan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Quang Trung Plaza (shopping)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local shopping center with various stores and eateries.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Quang Trung Plaza,Binh Tan District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thu Duc City (Former D2, D9, Thu Duc District) -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Thủ Đức City</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thu Thiem Urban Area</h4>
+                        <p class="text-gray-300 text-sm mb-2">A developing financial and residential hub with modern architecture and riverside parks.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu đô thị Thủ Thiêm,Thu Duc City,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Saigon Hi-Tech Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A major technology and research hub, home to many international tech companies.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu công nghệ cao Sài Gòn,Thu Duc City,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Suoi Tien Theme Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large Buddhist-themed amusement park with unique rides and attractions.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu du lịch Suối Tiên,Thu Duc City,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Van Thanh Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local market in the former Thu Duc district area.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Văn Thân,Thu Duc City,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Bach Dang Wharf (Thu Duc)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A riverside park and wharf, popular for views and recreation.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bến Bạch Đằng,Thu Duc City,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">University Village (Làng Đại học Thủ Đức)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large area housing various universities and student communities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Làng Đại học Thủ Đức,Thu Duc City,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nha Be -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Nhà Bè District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phu Xuan Bridge</h4>
+                        <p class="text-gray-300 text-sm mb-2">A major bridge connecting Nha Be to District 7, offering river views.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cầu Phú Xuân,Nha Be District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">River Park Tower (residential complex)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A modern residential development with riverside access.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=River Park Tower,Nha Be District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hiep Phuoc Industrial Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large industrial zone and port area.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu công nghiệp Hiệp Phước,Nha Be District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Long Kieng Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local pagoda known for its tranquil environment.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Long Kiến,Nha Be District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Can Gio Mangrove Forest (nearby)</h4>
+                        <p class="text-gray-300 text-sm mb-2">While primarily in Can Gio, parts of the ecological zone are accessible from Nha Be.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rừng ngập mặn Cần Giờ,Nha Be District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Nhà Bè Riverside Promenade</h4>
+                        <p class="text-gray-300 text-sm mb-2">A pleasant area for walks along the river.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đường ven sông Nhà Bè,Nha Be District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Binh Chanh -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Bình Chánh District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Tan Tao Industrial Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">One of the larger industrial parks in the city's outskirts.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu công nghiệp Tân Tạo,Binh Chanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Lang Le - Bau Co Historical Site</h4>
+                        <p class="text-gray-300 text-sm mb-2">A significant historical site related to the Vietnam War.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Di tích lịch sử Láng Le - Bàu Cò,Binh Chanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Binh Dien Wholesale Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">One of the largest wholesale markets in HCMC for agricultural products.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ đầu mối Bình Điền,Binh Chanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Khang An Tourism Area</h4>
+                        <p class="text-gray-300 text-sm mb-2">A growing tourist area with various recreational facilities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu du lịch Khang An,Binh Chanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phuoc Loc Tho ancient village</h4>
+                        <p class="text-gray-300 text-sm mb-2">A cultural attraction showcasing traditional Vietnamese houses and customs.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Làng cổ Phước Lộc Thọ,Binh Chanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thanh Tuy Ha (Binh Chanh) Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A peaceful temple in the suburban landscape.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Thanh Tuyền Hà,Binh Chanh District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cu Chi -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Củ Chi District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cu Chi Tunnels (Ben Duoc)</h4>
+                        <p class="text-gray-300 text-sm mb-2">The larger, more authentic section of the famous underground tunnels used during the Vietnam War.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Địa đạo Củ Chi (Bến Dược),Cu Chi District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cu Chi Tunnels (Ben Dinh)</h4>
+                        <p class="text-gray-300 text-sm mb-2">The more tourist-focused section of the tunnels, offering a direct experience.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Địa đạo Củ Chi (Bến Đình),Cu Chi District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cu Chi Wildlife Rescue Station</h4>
+                        <p class="text-gray-300 text-sm mb-2">A rescue center for confiscated wild animals, primarily from the illegal wildlife trade.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Trạm cứu hộ động vật hoang dã Củ Chi,Cu Chi District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Ben Duoc Memorial Temple</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large temple complex commemorating those who died in the Vietnam War.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đền Bến Dược,Cu Chi District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cu Chi Orphanage</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local orphanage that cares for disadvantaged children.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cô nhi viện Củ Chi,Cu Chi District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Cu Chi Fresh Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">Experience a genuine local market in the heart of Cu Chi town.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Củ Chi,Cu Chi District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hoc Mon -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Hóc Môn District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hoc Mon 18 Mon Hoc Mon Historic Site</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historical site commemorating the 18 local uprisings against French colonial rule.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Di tích 18 thôn vườn trầu Hóc Môn,Hoc Mon District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hoc Mon Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large, traditional wet market serving the local community.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Hóc Môn,Hoc Mon District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Nga Ba Giong Memorial Site</h4>
+                        <p class="text-gray-300 text-sm mb-2">A significant historical site where many Vietnamese revolutionaries were executed.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu tưởng niệm Ngã Ba Giồng,Hoc Mon District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Phuoc Buu Pagoda (Hoc Mon)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A peaceful local pagoda.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Phước Bửu,Hoc Mon District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hoc Mon Eco-tourism Area</h4>
+                        <p class="text-gray-300 text-sm mb-2">Offers rural experiences and outdoor activities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu du lịch sinh thái Hóc Môn,Hoc Mon District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Saigon Safari Park (under construction)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large-scale project aiming to be a major wildlife park, currently under development.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Safari Sài Gòn,Hoc Mon District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Can Gio -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Cần Giờ District</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Can Gio Mangrove Forest (Monkey Island)</h4>
+                        <p class="text-gray-300 text-sm mb-2">Explore the vast mangrove biosphere reserve, home to a large population of monkeys.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rừng ngập mặn Cần Giờ (Đảo Khỉ),Can Gio District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vam Sat Eco-tourism Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">Offers various eco-tourism activities, including crocodile fishing and bird watching.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu du lịch sinh thái Vàm Sát,Can Gio District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">30/4 Beach (Bãi biển 30/4)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A popular local beach for relaxation and seafood.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bãi biển 30 tháng 4,Can Gio District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Can Gio Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">A local market with fresh seafood and regional products.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Cần Giờ,Can Gio District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thanh An Island</h4>
+                        <p class="text-gray-300 text-sm mb-2">A tranquil island accessible by ferry, offering a glimpse into local island life.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Đảo Thạnh An,Can Gio District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Hang Duong Market (seafood)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A famous seafood market where you can buy fresh seafood and have it cooked on the spot.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Hàng Dương,Can Gio District,Ho Chi Minh City" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metro Additions -->
+            <h2 class="district-heading animate-fade-in mt-20 animate-delay-2">Metro Additions</h2>
+
+            <!-- Binh Duong -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Bình Dương Province</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Dĩ An City: AEON Mall Binh Duong Canary</h4>
+                        <p class="text-gray-300 text-sm mb-2">A major shopping and entertainment complex in Bình Dương.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=AEON Mall Bình Dương Canary,Di An,Binh Duong" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thủ Dầu Một City: Thu Dau Mot Market</h4>
+                        <p class="text-gray-300 text-sm mb-2">The central market of Thủ Dầu Một, offering local goods and food.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chợ Thủ Dầu Một,Thu Dau Mot,Binh Duong" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thuận An City: Lotte Mart Binh Duong</h4>
+                        <p class="text-gray-300 text-sm mb-2">A large supermarket and shopping center.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte Mart Bình Dương,Thuan An,Binh Duong" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Dĩ An City: Binh An Lake Park</h4>
+                        <p class="text-gray-300 text-sm mb-2">A peaceful lake and park area for recreation.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Công viên Hồ Bình An,Di An,Binh Duong" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thủ Dầu Một City: Hoi Khanh Pagoda</h4>
+                        <p class="text-gray-300 text-sm mb-2">A historic pagoda with significant cultural value.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Chùa Hội Khánh,Thu Dau Mot,Binh Duong" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Thuận An City: The Esplanade (Khu dân cư Chánh Nghĩa)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A developed area with various shops and eateries.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Khu dân cư Chánh Nghĩa,Thuan An,Binh Duong" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vung Tau -->
+            <div class="mb-10 animate-fade-in">
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Vũng Tàu Province</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vũng Tàu City: Jesus Christ Statue (Thích Ca Phật Đài)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A colossal statue of Jesus Christ offering panoramic views from its arms.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tượng Chúa Kitô Vua,Vung Tau City,Vung Tau" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vũng Tàu City: Vung Tau Lighthouse</h4>
+                        <p class="text-gray-300 text-sm mb-2">An iconic lighthouse providing great views of the city and coastline.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hải đăng Vũng Tàu,Vung Tau City,Vung Tau" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Long Hải: Long Hai Beach</h4>
+                        <p class="text-gray-300 text-sm mb-2">A quieter, less crowded beach perfect for a relaxing getaway.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bãi biển Long Hải,Long Hai,Vung Tau" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Bà Rịa: Nghinh Phong Cape</h4>
+                        <p class="text-gray-300 text-sm mb-2">A scenic cape offering beautiful views and strong winds.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Mũi Nghinh Phong,Ba Ria,Vung Tau" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vũng Tàu City: Back Beach (Bãi Sau)</h4>
+                        <p class="text-gray-300 text-sm mb-2">The most popular beach in Vũng Tàu, bustling with activities.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bãi Sau,Vung Tau City,Vung Tau" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                    <div class="card">
+                        <h4 class="font-bold text-lg mb-1">Vũng Tàu City: White Palace (Bạch Dinh)</h4>
+                        <p class="text-gray-300 text-sm mb-2">A beautiful French colonial villa overlooking the sea, now a museum.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bạch Dinh,Vung Tau City,Vung Tau" target="_blank" class="place-link">View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm">
+        <div class="container">
+            <p>&copy; 2025 GoSaigon.org. All rights reserved.</p>
+            <p class="mt-2">Connecting you to the heart of Ho Chi Minh City.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle (copied from index.html)
+        const menuButton = document.getElementById('menu-button');
+        const navLinks = document.getElementById('nav-links');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('flex-col');
+        });
+
+        // Hide mobile menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!navLinks.classList.contains('hidden') && window.innerWidth < 768) {
+                    navLinks.classList.add('hidden');
+                    navLinks.classList.remove('flex');
+                    navLinks.classList.remove('flex-col');
+                }
+            });
+        });
+
+        // Animate sections on scroll (copied from index.html)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    entry.target.classList.remove('animate-delay-1', 'animate-delay-2', 'animate-delay-3');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > .container, .card, .district-heading').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
