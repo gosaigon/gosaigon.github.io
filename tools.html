@@ -6,73 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Useful Tools – GoSaigon</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background-color: #f8f9fa;
-      color: #2c3e50;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1 {
-      color: #1a237e;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    .tool-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-    }
-    .tool-box {
-      flex: 1 1 300px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .tool-icon {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    .tool-title {
-      font-size: 1.3rem;
-      color: #1a237e;
-      margin-bottom: 8px;
-    }
-    .tool-desc {
-      font-size: 1rem;
-      margin-bottom: 15px;
-    }
-    iframe {
-      width: 100%;
-      height: 320px;
-      border: none;
-      border-radius: 8px;
-    }
-    .translator-box {
-      height: auto;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; color: #2c3e50; margin:0; padding:0; }
+    .container { max-width:1100px; margin:auto; padding:40px 20px; }
+    h1 { color: #1a237e; font-size:2.5rem; margin-bottom:20px; }
+    .tool-grid { display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between; }
+    .tool-box { flex:1 1 300px; background:#fff; border-radius:10px; padding:24px; text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+    .tool-icon { font-size:48px; margin-bottom:10px; }
+    .tool-title { font-size:1.3rem; color:#1a237e; margin-bottom:8px; }
+    .tool-desc { font-size:1rem; margin-bottom:15px; }
+    iframe, .mconvert-widget, .weatherwidget-io { width:100%; border:none; border-radius:8px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🧰 Useful Tools for Saigon Visitors</h1>
-    <p>Translate signs, convert money, and check the weather while exploring Ho Chi Minh City.</p>
+    <h1>🧰 Travel Tools for Saigon Visitors</h1>
+    <p>Translate Vietnamese, check weather, and convert money easily on the go.</p>
 
     <div class="tool-grid">
 
       <!-- Translator -->
-      <div class="tool-box translator-box">
+      <div class="tool-box">
         <div class="tool-icon">🌐</div>
-        <div class="tool-title">Live Translator</div>
-        <div class="tool-desc">Translate any language into Vietnamese instantly.</div>
+        <div class="tool-title">Translator to Vietnamese</div>
+        <div class="tool-desc">Translate from any language into Vietnamese instantly.</div>
         <div id="google_translate_element"></div>
       </div>
 
@@ -80,25 +36,34 @@
       <div class="tool-box">
         <div class="tool-icon">💱</div>
         <div class="tool-title">Currency Converter</div>
-        <div class="tool-desc">Convert currencies from anywhere into VND.</div>
-        <iframe src="https://www.currency.wiki/widgets/converter?from=USD&to=VND&amount=1&border=true&primary=%231a237e&secondary=%23ffffff"></iframe>
+        <div class="tool-desc">Convert any currency worldwide to VND (or select your source/target).</div>
+        <!-- MConvert multi-currency widget -->
+        <div class="mconvert-widget">
+          <script type="text/javascript">
+            var w='100%', h='300', b='usd', a='1', l='en', t='blue', c='eur,gbp,jpy,usd,cny,vnd', ty='1', f='2', ht='mconvert.net/';
+          </script>
+          <a href="https://mconvert.net/" title="Currency Converter"><script src="//mconvert.net/currency_converter"></script></a>
+        </div>
       </div>
 
       <!-- Weather Widget -->
       <div class="tool-box">
         <div class="tool-icon">🌤️</div>
         <div class="tool-title">Saigon Weather</div>
-        <div class="tool-desc">See current and forecasted weather for Ho Chi Minh City.</div>
+        <div class="tool-desc">Current weather and forecast for Ho Chi Minh City.</div>
         <!-- WeatherWidget.io Embed -->
-        <a class="weatherwidget-io" href="https://forecast7.com/en/n10d82n106d63/ho-chi-minh-city/" data-label_1="HO CHI MINH" data-label_2="WEATHER" data-theme="original" >HO CHI MINH WEATHER</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n10d82n106d63/ho-chi-minh-city/"
+           data-label_1="HO CHI MINH" data-label_2="WEATHER" data-theme="original">
+          HO CHI MINH WEATHER</a>
         <script>
           !function(d,s,id){
-            var js,fjs=d.getElementsByTagName(s)[0];
-            if(!d.getElementById(id)){
-              js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://weatherwidget.io/js/widget.min.js';
               fjs.parentNode.insertBefore(js,fjs);
             }
-          }(document,'script','weatherwidget-io-js');
+          }(document, 'script', 'weatherwidget-io-js');
         </script>
       </div>
 
@@ -115,8 +80,6 @@
       }, 'google_translate_element');
     }
   </script>
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
