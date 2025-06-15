@@ -1,176 +1,216 @@
-<!-- cuisine.html content placeholder -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Food in Saigon</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f8f9fa;
-      color: #2c3e50;
-    }
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1, h2, h3 {
-      color: #1a237e;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 40px;
-      border-bottom: 2px solid #1a237e;
-      padding-bottom: 5px;
-    }
-    p, li {
-      font-size: 1.1rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      background: #ffffff;
-    }
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-    th, td {
-      padding: 14px;
-      text-align: left;
-    }
-    th {
-      background-color: #e3f2fd;
-    }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      margin-top: 20px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    ul li::marker {
-      color: #4caf50;
-    }
-    a {
-      color: #1565c0;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .tip-section {
-      background: #e8f5e9;
-      border-left: 5px solid #388e3c;
-      padding: 16px;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saigon Cuisine Guide | GoSaigon.org</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom styles to match gosaigon.org theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        :root {
+            --teal-primary: #008080;
+            --orange-accent: #FFA500;
+        }
+
+        .text-teal { color: var(--teal-primary); }
+        .bg-teal { background-color: var(--teal-primary); }
+        .text-orange { color: var(--orange-accent); }
+        .border-teal { border-color: var(--teal-primary); }
+
+        .nav-link-active {
+            color: var(--orange-accent);
+            font-weight: 700;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--teal-primary);
+            margin-bottom: 2rem;
+            padding-top: 2rem;
+        }
+        
+        .food-table {
+            width: 100%;
+            text-align: left;
+        }
+        .food-table th, .food-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .food-table thead {
+            background-color: rgba(0, 128, 128, 0.05);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--teal-primary);
+        }
+        .food-table tbody tr:hover {
+            background-color: #f9fafb;
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <h1>🍽️ Food in Saigon</h1>
+<body class="text-gray-800">
 
-    <h2>🥢 What Saigonites Eat</h2>
-    <p>🍲 What Saigon Eats: A Local’s Daily Food Journey
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal">GoSaigon.org</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-orange duration-300">Home</a>
+                <a href="attractions.html" class="text-gray-600 hover:text-orange duration-300">Attractions</a>
+                <a href="culture.html" class="text-gray-600 hover:text-orange duration-300">Culture</a>
+                <a href="transportation.html" class="text-gray-600 hover:text-orange duration-300">Transportation</a>
+                <a href="food.html" class="nav-link-active">Food</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-teal focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange">Home</a>
+            <a href="attractions.html" class="block py-2 text-gray-600 hover:text-orange">Attractions</a>
+            <a href="culture.html" class="block py-2 text-gray-600 hover:text-orange">Culture</a>
+            <a href="transportation.html" class="block py-2 text-gray-600 hover:text-orange">Transportation</a>
+            <a href="food.html" class="block py-2 nav-link-active">Food</a>
+        </div>
+    </header>
 
-To truly appreciate the heart of Ho Chi Minh City, you need to experience its food culture. The cuisine here is flavorful, colorful, and distinctly southern — often sweeter and herb-heavy compared to dishes from the north or central regions of Vietnam.
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 md:px-6 py-12">
 
-As one of Vietnam’s most vibrant and diverse cities, Saigon has long welcomed people (and food) from across the country. This has led to a local food scene that’s both traditional and eclectic, blending regional specialties with unique southern twists.
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-teal mb-4">A Taste of Saigon</h1>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                Dive into the vibrant, diverse, and unforgettable food culture of Ho Chi Minh City. From street-side stalls to hidden gems, here's your guide to eating like a local.
+            </p>
+        </div>
 
-Here’s what a typical day of eating might look like for someone living in Saigon.
+        <!-- What Saigonites Eat Section -->
+        <div class="card p-6 md:p-8 mb-12">
+            <h2 class="text-2xl font-bold text-teal mb-4">A Day in the Culinary Life of a Saigonese</h2>
+            <p class="text-gray-600">The city's cuisine is a symphony of flavors—often sweeter and more herb-focused than in other regions. It's a melting pot where Southern traditions meet specialties from across Vietnam, creating a food scene that's both authentic and endlessly inventive. Here’s what a typical day of eating looks like.</p>
+            <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">☀️ Breakfast</h3>
+                    <p class="text-sm text-gray-600">Quick, flavorful, and on-the-go. Think **Cơm Tấm** (broken rice), **Bánh Mì** sandwiches, or a comforting bowl of **Hủ Tiếu** noodle soup.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">🍛 Lunch</h3>
+                    <p class="text-sm text-gray-600">Often a simple rice plate (**Cơm Phần**) or a refreshing bowl of **Bún Thịt Nướng** (grilled pork with noodles).</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">🌙 Dinner</h3>
+                    <p class="text-sm text-gray-600">A social affair. Friends gather for **Lẩu** (hot pot) or families share dishes like **Thịt Kho Tộ** (caramelized pork).</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Snacks</h3>
+                    <p class="text-sm text-gray-600">The heart of Saigon! Evenings are for **Ốc** (snails), **Bánh Xèo** (crispy pancakes), and **Bò Lá Lốt** (grilled beef in betel leaf).</p>
+                </div>
+            </div>
+        </div>
 
-☀️ Breakfast: Quick, Flavor-Packed, and Grabbed on the Go
-In Saigon, mornings start early and breakfast is often something picked up from a street vendor on the way to school or work. The focus is on speed, warmth, and big flavor.
+        <!-- Restaurant Categories Section -->
+        <div>
+            <!-- Local Favorites -->
+            <h2 class="section-title">Local Favorites & Must-Try Restaurants</h2>
+            <div class="card mb-12">
+                <div class="overflow-x-auto">
+                    <table class="food-table">
+                        <thead><tr><th>Restaurant</th><th>Location</th><th>Highlights</th></tr></thead>
+                        <tbody>
+                            <tr><td>Secret Garden</td><td>158 Pasteur, D1</td><td>Rooftop setting with authentic Vietnamese home-style cooking.</td></tr>
+                            <tr><td>Cục Gạch Quán</td><td>10 Đặng Tất, D1</td><td>Rustic, charming villa serving family-style southern dishes.</td></tr>
+                            <tr><td>Nhà Hàng Ngon</td><td>160 Pasteur, D1</td><td>Beautiful colonial villa offering a huge variety of regional dishes.</td></tr>
+                            <tr><td>Bánh Mì Huỳnh Hoa</td><td>26 Lê Thị Riêng, D1</td><td>Famous for its jam-packed bánh mì with generous meats & pâté.</td></tr>
+                            <tr><td>Anan Saigon</td><td>89 Tôn Thất Đạm, D1</td><td>Modern, Michelin-starred Vietnamese fusion with rooftop cocktails.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-Cơm Tấm (Broken Rice) – This is a true Saigon staple: soft broken rice served with grilled pork chops, shredded pork skin, and a steamed pork and egg patty. It’s topped with scallion oil and accompanied by pickles and fish sauce.
-Bánh Mì – The famous Vietnamese baguette sandwich is a breakfast favorite. Crispy on the outside, it’s filled with pâté, cold cuts, pickled vegetables, cucumber, coriander, and soy sauce or chili.
-Xôi Mặn (Savory Sticky Rice) – Sticky rice with a salty twist, this dish might come topped with Chinese sausage, dried shredded pork, fried shallots, and boiled quail eggs.
-Hủ Tiếu – A lighter alternative to phở, this pork-based noodle soup has a slightly sweet, clear broth and is typically served with sliced pork, shrimp, and greens.
-🍛 Lunch & Dinner: From Family Meals to Street-Side Favorites
-Lunch tends to be fast and simple, while dinner is often more relaxed and social, shared with family or friends at home or out at local eateries.
+            <!-- Halal & Vegan Section -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Halal Dining -->
+                <div>
+                    <h2 class="section-title">Halal & Muslim-Friendly</h2>
+                    <div class="card">
+                        <div class="overflow-x-auto">
+                            <table class="food-table">
+                                <thead><tr><th>Restaurant</th><th>Area</th><th>Cuisine & Notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Halal@Saigon</td><td>Đông Du, D1</td><td>Vietnamese & Malaysian fusion, Muslim-owned.</td></tr>
+                                    <tr><td>Pho Muslim</td><td>Trần Hưng Đạo, D1</td><td>Authentic Halal phở & bún bò Huế. A local gem.</td></tr>
+                                    <tr><td>The Daun Restaurant</td><td>Lê Lai, D1</td><td>Vietnamese & Singaporean. Prayer room available.</td></tr>
+                                    <tr><td>Kampung Pandan</td><td>Thủ Khoa Huân, D1</td><td>Classic Malaysian fare like roti & nasi lemak.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vegetarian & Vegan -->
+                 <div>
+                    <h2 class="section-title">Vegetarian & Vegan</h2>
+                    <div class="card p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fa-solid fa-leaf text-teal mt-1 mr-3"></i><div><strong class="text-gray-800">Hum Vegetarian</strong><p class="text-sm text-gray-600">Elegant setting, creative dishes. Located in District 3.</p></div></li>
+                            <li class="flex items-start"><i class="fa-solid fa-leaf text-teal mt-1 mr-3"></i><div><strong class="text-gray-800">Loving Hut Hoa Đăng</strong><p class="text-sm text-gray-600">Part of an international vegan chain. Wide menu in District 1.</p></div></li>
+                            <li class="flex items-start"><i class="fa-solid fa-leaf text-teal mt-1 mr-3"></i><div><strong class="text-gray-800">Pi Vegetarian Bistro</strong><p class="text-sm text-gray-600">Cozy atmosphere with a focus on fresh, local ingredients.</p></div></li>
+                        </ul>
+                         <p class="text-xs text-center mt-4 p-2 bg-gray-50 rounded-md"><strong>Tip:</strong> Look for the word "Chay" on signs and menus—it means vegetarian!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-Cơm Phần (Rice with Dishes) – A typical family meal consists of plain rice and a selection of shared dishes: caramelized pork and eggs in clay pot (thịt kho), a tangy tamarind soup with fish (canh chua), and sautéed greens.
-Bún Thịt Nướng – Cool rice noodles paired with grilled pork, crispy spring rolls, herbs, and peanuts. The dish is finished with a sweet-savory fish sauce dressing.
-Lẩu (Hot Pot) – A popular choice for group dinners. Everyone cooks their own food at the table in a communal pot of boiling broth, choosing from meats, seafood, tofu, and fresh vegetables.
-🌙 Evening Snacks & Street Food Rituals
-Saigon is famous for its after-dark street food culture. From sidewalks to small alley stalls, food is everywhere — and the social experience is just as important as the meal.
+        <!-- Interactive Map -->
+        <h2 class="section-title">Find Your Next Meal</h2>
+        <div class="card p-4">
+             <iframe src="https://www.google.com/maps/d/embed?mid=1OuL_Yp9hUoTBBKX9oUAZmZ8qlqyu2MU&ehbc=2E312F" class="w-full h-96 md:h-[500px] rounded-md"></iframe>
+        </div>
 
-Ốc (Snails & Shellfish) – Dining on shellfish is a beloved pastime. Locals gather at snail shops to snack on clams, mussels, and snails prepared in buttery garlic, tamarind, lemongrass, or chili sauces.
-Bánh Xèo – A golden rice flour pancake filled with pork, shrimp, and bean sprouts. It’s typically cut into pieces, wrapped in lettuce with herbs, and dipped in fish sauce.
-Bò Lá Lốt – Grilled rolls of seasoned beef wrapped in fragrant betel leaves, served with fresh greens and rice paper for DIY wraps.
-Phá Lấu – A rich, comforting dish made from slow-cooked pork or beef organs simmered in a coconut-spice broth. Commonly eaten with bread to soak up the flavorful sauce.
-🌏 A Culinary Melting Pot
-Eating in Saigon reflects the city’s diverse, ever-evolving identity. While Southern Vietnamese dishes remain the foundation, locals embrace food from the north, central coast, and increasingly, the rest of the world.
+    </main>
 
-Whether you’re sitting on a red plastic stool slurping noodles or enjoying a home-cooked meal, you’ll find that food in Saigon is more than nourishment — it’s an essential part of the city’s rhythm..</p>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2024 GoSaigon.org. All Rights Reserved.</p>
+            <p class="text-sm">Your guide to navigating and enjoying Ho Chi Minh City.</p>
+        </div>
+    </footer>
 
-    <h2>🌆 Popular Local Restaurants</h2>
-    <table>
-      <tr><th>Restaurant</th><th>Location</th><th>Highlights</th></tr>
-      <tr><td>Secret Garden</td><td>158 Pasteur, D1</td><td>Rooftop Vietnamese home-style dining</td></tr>
-      <tr><td>Cục Gạch Quán</td><td>10 Đặng Tất, D1</td><td>Rustic setting, family-style southern dishes</td></tr>
-      <tr><td>Nhà Hàng Ngon</td><td>160 Pasteur, D1</td><td>Variety of regional Vietnamese dishes</td></tr>
-      <tr><td>Quán Ăn Ngon</td><td>138 Nam Kỳ Khởi Nghĩa, D1</td><td>Open-air food court of Vietnamese classics</td></tr>
-      <tr><td>Bánh Mì Huỳnh Hoa</td><td>26 Lê Thị Riêng, D1</td><td>Famous rich bánh mì with meats & pâté</td></tr>
-      <tr><td>Anan Saigon</td><td>89 Tôn Thất Đạm, D1</td><td>Modern Vietnamese fusion, rooftop cocktails</td></tr>
-    </table>
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 
-    <h2>🕌 Halal & Muslim‑Friendly Dining</h2>
-    <table>
-      <tr><th>Restaurant</th><th>Area</th><th>Notes & Hours</th></tr>
-      <tr><td>Halal@Saigon</td><td>Đông Du, D1</td><td>Fusion, Muslim-owned; 11AM–9:30PM</td></tr>
-      <tr><td>Pho Muslim</td><td>TK25/18 Trần Hưng Đạo, D1</td><td>Halal phở & bún bò Huế, 6:30–11:30AM</td></tr>
-      <tr><td>The Daun</td><td>48 Lê Lai, D1</td><td>Fusion, prayer room available</td></tr>
-      <tr><td>Kampung Pandan</td><td>53 Thủ Khoa Huân, D1</td><td>Malaysian fare, roti & nasi lemak</td></tr>
-      <tr><td>Musa Karim</td><td>47 Nguyễn An Ninh, D1</td><td>Middle Eastern food</td></tr>
-    </table>
-
-    <h2>🥗 Vegetarian & Vegan Favorites</h2>
-    <ul>
-      <li><strong>Hum Vegetarian</strong> (32 Võ Văn Tần, D3): Zen setting, creative dishes 🌿</li>
-      <li><strong>Chay 3 La</strong> (32A Cao Ba Nha, D1): Leaf-based dishes, 35–100k VND 🌿</li>
-      <li><strong>Loving Hut Hoa Đăng</strong> (63 Mai Thị Lựu, D1): Vegan, 6–9 USD 🌿</li>
-      <li><strong>Prem Bistro</strong> (D3): Soups, salads, light fusion 🌿</li>
-    </ul>
-    <p><em>Vegetarian food is often 50% cheaper and just as delicious as meat dishes. Try phở chay, bánh xèo chay, and cơm tấm chay for flavorful options.</em></p>
-
-    <h2>🗺️ Interactive Map</h2>
-    <p>This map includes all major food spots: halal, local favorites, and vegetarian:</p>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1OuL_Yp9hUoTBBKX9oUAZmZ8qlqyu2MU&ehbc=2E312F"></iframe>
-
-    <h2>🔗 Live Google Maps Links</h2>
-    <ul>
-      <li><a href="https://maps.google.com/?q=31+Đông+Du,+D1,HCMC">Halal@Saigon</a></li>
-      <li><a href="https://maps.google.com/?q=TK25/18+Trần+Hưng+Đạo,+D1">Pho Muslim</a></li>
-      <li><a href="https://maps.google.com/?q=48+Lê+Lai,+D1">The Daun</a></li>
-      <li><a href="https://maps.google.com/?q=53+Thủ+Khoa+Huân,+D1">Kampung Pandan</a></li>
-      <li><a href="https://maps.google.com/?q=47+Nguyễn+An+Ninh,+D1">Musa Karim</a></li>
-      <li><a href="https://maps.google.com/?q=32+Võ+Văn+Tần,+D3">Hum Vegetarian</a></li>
-      <li><a href="https://maps.google.com/?q=32A+Cao+Ba+Nha,+D1">Chay 3 La</a></li>
-      <li><a href="https://maps.google.com/?q=63+Mai+Thị+Lựu,+D1">Loving Hut</a></li>
-    </ul>
-
-    <div class="tip-section">
-      <h3>✅ Tips for Eating in Saigon</h3>
-      <ul>
-        <li>Verify halal certification where needed</li>
-        <li>Use “chay” to search for vegetarian dishes</li>
-        <li>Check Facebook or HappyCow for updated hours and reviews</li>
-      </ul>
-    </div>
-  </div>
 </body>
 </html>
