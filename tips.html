@@ -71,32 +71,28 @@
 </head>
 <body class="text-gray-800">
 
+    
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-teal">GoSaigon.org</a>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="index.html" class="text-gray-600 hover:text-orange duration-300">Home</a>
-                <a href="attractions.html" class="text-gray-600 hover:text-orange duration-300">Attractions</a>
-                <a href="culture.html" class="text-gray-600 hover:text-orange duration-300">Culture</a>
-                <a href="transportation.html" class="nav-link-active">Transportation</a>
-                <a href="food.html" class="text-gray-600 hover:text-orange duration-300">Food</a>
-            </nav>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-teal focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    <header class="bg-gray-900 shadow-md py-4 sticky top-0 z-50">
+        <nav class="container flex flex-wrap justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-white bg-gradient-to-r from-purple-500 to-cyan-400 p-2 rounded-lg leading-none transform hover:scale-105 transition-transform duration-300">GoSaigon.org</a>
+            <button id="menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="index.html" class="block py-2 text-gray-600 hover:text-orange">Home</a>
-            <a href="attractions.html" class="block py-2 text-gray-600 hover:text-orange">Attractions</a>
-            <a href="culture.html" class="block py-2 text-gray-600 hover:text-orange">Culture</a>
-            <a href="transportation.html" class="block py-2 nav-link-active">Transportation</a>
-            <a href="food.html" class="block py-2 text-gray-600 hover:text-orange">Food</a>
-        </div>
+            <div id="nav-links" class="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 w-full md:w-auto items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="attractions.html" class="nav-link">Attractions</a>
+                <a href="culture.html" class="nav-link">Culture</a>
+                <a href="cuisine.html" class="nav-link">Cuisine</a>
+                <a href="tips.html" class="nav-link">Tips</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="megacity.html" class="nav-link">Megacity</a>
+                <a href="healthcare.html" class="nav-link">Healthcare</a>
+                <a href="living.html" class="nav-link">Living</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </nav>
     </header>
-
     <!-- Main Content -->
     <main class="container mx-auto px-4 md:px-6 py-12">
 
