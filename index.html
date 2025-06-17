@@ -1,455 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoSaigon.org - Your Gateway to Ho Chi Minh City</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background for futuristic feel */
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        .section-title {
-            @apply text-4xl md:text-5xl font-bold text-center mb-12 relative;
-            background: linear-gradient(90deg, #8a2be2, #00ffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #8a2be2, #00ffff);
-            border-radius: 2px;
-        }
-        .nav-link {
-            @apply text-lg font-medium text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-4 py-2 rounded-md;
-        }
-        .btn-primary {
-            @apply bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out;
-        }
-        .card {
-            @apply bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-start transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-transparent hover:border-cyan-500;
-        }
-        .map-container {
-            @apply rounded-xl overflow-hidden shadow-xl border border-gray-700;
-        }
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a202c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #8a2be2;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ffff;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        .animate-delay-1 { animation-delay: 0.2s; }
-        .animate-delay-2 { animation-delay: 0.4s; }
-        .animate-delay-3 { animation-delay: 0.6s; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoSaigon.org – Colorful Redesign</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #ff6b6b, #f8e71c, #7ed6df);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
-<body class="antialiased">
+<body class="bg-white text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-gray-900 shadow-md py-4 sticky top-0 z-50">
-        <nav class="container flex flex-wrap justify-between items-center">
-            <a href="index.html" class="text-3xl font-extrabold text-white bg-gradient-to-r from-purple-500 to-cyan-400 p-2 rounded-lg leading-none transform hover:scale-105 transition-transform duration-300">GoSaigon.org</a>
-            <button id="menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-            <div id="nav-links" class="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 w-full md:w-auto items-center">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="attractions.html" class="nav-link">Attractions</a>
-                <a href="culture.html" class="nav-link">Culture</a>
-                <a href="cuisine.html" class="nav-link">Cuisine</a>
-                <a href="tips.html" class="nav-link">Tips</a>
-                <a href="tools.html" class="nav-link">Tools</a>
-                <a href="megacity.html" class="nav-link">Megacity</a>
-                <a href="healthcare.html" class="nav-link">Healthcare</a>
-                <a href="living.html" class="nav-link">Living</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-        </nav>
-    </header>
+<!-- Header -->
+<header class="fixed w-full z-50 glass shadow-md">
+  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a href="#" class="text-2xl font-extrabold gradient-text">GoSaigon.org</a>
+    <div class="space-x-4 hidden md:flex">
+      <a href="#districts" class="text-gray-700 hover:text-pink-500 font-semibold">Districts</a>
+      <a href="#culture" class="text-gray-700 hover:text-green-500 font-semibold">Culture</a>
+      <a href="#cuisine" class="text-gray-700 hover:text-yellow-500 font-semibold">Cuisine</a>
+      <a href="#tips" class="text-gray-700 hover:text-purple-500 font-semibold">Tips</a>
+      <a href="#tools" class="text-gray-700 hover:text-blue-500 font-semibold">Tools</a>
+      <a href="#megacity" class="text-gray-700 hover:text-indigo-500 font-semibold">Megacity</a>
+      <a href="#healthcare" class="text-gray-700 hover:text-red-400 font-semibold">Healthcare</a>
+      <a href="#living" class="text-gray-700 hover:text-teal-500 font-semibold">Living</a>
+      <a href="#contact" class="text-gray-700 hover:text-gray-700 font-semibold">Contact</a>
+    </div>
+  </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('https://placehold.co/1920x1080/1a202c/e0e0e0?text=Ho+Chi+Minh+City+Skyline');">
-        <div class="absolute inset-0 bg-black opacity-70"></div>
-        <div class="z-10 text-center px-4 animate-fade-in">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Explore the Dynamic Heart of <span class="bg-gradient-to-r from-purple-400 to-cyan-300 text-transparent bg-clip-text">Ho Chi Minh City</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                Your ultimate guide to Saigon's vibrant districts, hidden gems, and local insights.
-            </p>
-            <div class="space-x-4">
-                <a href="#districts" class="btn-primary animate-delay-1">Discover Districts</a>
-                <a href="#transport" class="btn-primary animate-delay-2">Travel Smart</a>
-            </div>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="pt-24 bg-gradient-to-br from-pink-100 via-yellow-50 to-blue-100 min-h-screen flex items-center justify-center text-center px-6">
+  <div>
+    <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6">Discover Colorful Saigon</h1>
+    <p class="text-lg md:text-xl text-gray-700 max-w-xl mx-auto mb-8">Explore all 22 districts, hidden gems, vibrant culture, and real local tips – designed just for curious explorers.</p>
+    <a href="#districts" class="inline-block bg-pink-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-pink-600 transition">Start Exploring</a>
+  </div>
+</section>
 
-    <!-- Districts Section -->
-    <section id="districts" class="py-16 bg-gray-900">
-        <div class="container">
-            <h2 class="section-title animate-fade-in animate-delay-1">Explore Saigon's 22 Districts</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto animate-fade-in animate-delay-2">
-                Ho Chi Minh City is a sprawling metropolis, each district offering a unique flavor and experience. From the bustling downtown to serene green spaces, find your adventure here.
-            </p>
+<!-- Modular Sections (Placeholder Content) -->
+<section id="districts" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Explore the Districts</h2>
+    <!-- Reuse colorful card structure for districts 1–Thủ Đức City -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Example card -->
+      <div class="p-6 rounded-xl shadow bg-gradient-to-br from-blue-100 via-purple-50 to-yellow-100">
+        <h3 class="text-xl font-bold text-purple-700 mb-2">District 1</h3>
+        <p class="text-sm text-gray-700">Landmarks, nightlife, shopping. Iconic Saigon.</p>
+      </div>
+      <!-- Repeat for all 22 districts dynamically or manually -->
+    </div>
+  </div>
+</section>
 
-            <!-- Interactive Map Placeholder -->
-            <div class="map-container mb-16 h-[500px] md:h-[600px] animate-fade-in animate-delay-3">
-                <!-- Replace with actual Google Maps embed. You'll need an API key. -->
-                <!-- Example: <iframe src="https://www.google.com/maps/embed/..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15678.895392652174!2d106.69766945!3d10.7719602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f2070c5678f%3A0xb351f044e99f660!2sHo%20Chi%20Minh%20City!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Map of Ho Chi Minh City Districts"
-                ></iframe>
-            </div>
+<section id="culture" class="py-20 bg-gradient-to-br from-green-100 via-white to-blue-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Culture & History</h2>
+    <p class="max-w-2xl mx-auto text-gray-700">Temples, war museums, colonial architecture, and a thousand stories across Saigon's rich historical canvas.</p>
+  </div>
+</section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- District 1 -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 1</h3>
-                    <p class="text-gray-300 text-sm mb-4">The vibrant heart of HCMC, home to iconic landmarks, luxury hotels, and bustling nightlife. Perfect for first-time visitors.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Notre Dame Cathedral, Central Post Office, Ben Thanh Market, Independence Palace, Bui Vien Walking Street.
-                    </p>
-                </div>
-                <!-- District 2 (now part of Thu Duc City) -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 2 (Thủ Đức City)</h3>
-                    <p class="text-gray-300 text-sm mb-4">Known for its expat community, modern cafes, international restaurants, and upscale residential areas. Now a part of Thủ Đức City.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Thao Dien neighborhood, numerous international schools, riverside dining.
-                    </p>
-                </div>
-                <!-- District 3 -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 3</h3>
-                    <p class="text-gray-300 text-sm mb-4">Combines historical charm with local life. Features beautiful French colonial villas and quieter streets than D1.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Tan Dinh Church (Pink Church), War Remnants Museum, traditional coffee shops.
-                    </p>
-                </div>
-                <!-- District 4 -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 4</h3>
-                    <p class="text-gray-300 text-sm mb-4">A former notorious area, now a vibrant, dense residential district known for its street food and local atmosphere.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Vinh Khanh Street (seafood street), The Cafe Apartment (near border with D1).
-                    </p>
-                </div>
-                <!-- District 5 -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 5</h3>
-                    <p class="text-gray-300 text-sm mb-4">Home to Saigon's historic Chinatown (Chợ Lớn), offering a rich cultural experience, ancient pagodas, and traditional markets.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Binh Tay Market, Thien Hau Pagoda, herbal medicine shops.
-                    </p>
-                </div>
-                <!-- District 6 -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="2xl font-semibold text-cyan-400 mb-2">District 6</h3>
-                    <p class="text-gray-300 text-sm mb-4">Adjacent to District 5, it continues the authentic Chinese-Vietnamese cultural vibe with various temples and local markets.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Cho Lon attractions, traditional craft shops.
-                    </p>
-                </div>
-                <!-- District 7 -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 7</h3>
-                    <p class="text-gray-300 text-sm mb-4">A modern, affluent district known for its master-planned residential areas like Phu My Hung, popular with Koreans and expats.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Crescent Mall, Starlight Bridge (Cầu Ánh Sao), international schools and hospitals.
-                    </p>
-                </div>
-                <!-- District 8 -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 8</h3>
-                    <p class="text-gray-300 text-sm mb-4">A largely residential and industrial area, offering a glimpse into local working-class life along canals and bridges.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Floating markets (seasonal), local temples.
-                    </p>
-                </div>
-                <!-- District 9 (now part of Thu Duc City) -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 9 (Thủ Đức City)</h3>
-                    <p class="text-gray-300 text-sm mb-4">A rapidly developing area, part of the new Thủ Đức City, with tech parks, universities, and new residential complexes.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Saigon Hi-Tech Park, Suoi Tien Theme Park (nearby).
-                    </p>
-                </div>
-                <!-- District 10 -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 10</h3>
-                    <p class="text-gray-300 text-sm mb-4">A bustling commercial and residential hub, famous for its large markets, medical facilities, and vibrant street life.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Ho Thi Ky Flower Market, Nguyen Tri Phuong Market, many hospitals.
-                    </p>
-                </div>
-                <!-- District 11 -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 11</h3>
-                    <p class="text-gray-300 text-sm mb-4">Home to Dam Sen Cultural Park, this district is a mix of residential areas and local businesses.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Dam Sen Cultural Park (theme park), Phu Tho Stadium.
-                    </p>
-                </div>
-                <!-- District 12 -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">District 12</h3>
-                    <p class="text-gray-300 text-sm mb-4">A large, developing district in the northwest, primarily residential with expanding industrial zones.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Thien An monastery, Binh Chieu market.
-                    </p>
-                </div>
-                <!-- Binh Thanh District -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Bình Thạnh District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A diverse district with a mix of residential areas, universities, and commercial zones, often seen as a bridge between central and suburban areas.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Landmark 81 (Vietnam's tallest building), Van Thanh Tourist Park, many local eateries.
-                    </p>
-                </div>
-                <!-- Gò Vấp District -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Gò Vấp District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A populous residential district known for its local markets, affordable living, and proximity to Tan Son Nhat Airport.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Local markets, traditional Vietnamese food stalls.
-                    </p>
-                </div>
-                <!-- Phú Nhuận District -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Phú Nhuận District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A small, lively district often traversed to and from the airport, with many local businesses, cafes, and residential streets.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Phan Xich Long street (food street), many local cafes.
-                    </p>
-                </div>
-                <!-- Tân Bình District -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Tân Bình District</h3>
-                    <p class="text-gray-300 text-sm mb-4">Home to Tan Son Nhat International Airport, it's a bustling area with hotels, restaurants, and residential zones.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Tan Son Nhat Airport, Hoang Van Thu Park, many hotels and guesthouses.
-                    </p>
-                </div>
-                <!-- Tân Phú District -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Tân Phú District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A developing residential district with shopping malls and local amenities, offering a more suburban feel.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> AEON Mall Tan Phu Celadon, local markets.
-                    </p>
-                </div>
-                <!-- Bình Tân District -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Bình Tân District</h3>
-                    <p class="text-gray-300 text-sm mb-4">The most populous district, located in the west, primarily residential and industrial with a strong local character.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Go Vap Market, local street food.
-                    </p>
-                </div>
-                <!-- Bình Chánh District -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Bình Chánh District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A large rural-urban district on the southwestern outskirts, rapidly urbanizing but still retaining agricultural areas.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Local farms, traditional villages, Cu Chi Tunnels (further out).
-                    </p>
-                </div>
-                <!-- Hóc Môn District -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Hóc Môn District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A large suburban district known for its historical significance during the Vietnam War and developing residential areas.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Historical sites related to the Cu Chi Tunnels area.
-                    </p>
-                </div>
-                <!-- Nhà Bè District -->
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Nhà Bè District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A southern suburban district, increasingly urbanized with new residential projects and access to rivers and canals.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Phu Xuan Bridge, local seafood eateries along the river.
-                    </p>
-                </div>
-                <!-- Cần Giờ District -->
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Cần Giờ District</h3>
-                    <p class="text-gray-300 text-sm mb-4">A coastal district recognized as a UNESCO Biosphere Reserve, featuring mangrove forests, beaches, and wildlife.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Can Gio Mangrove Forest (Monkey Island), Vam Sat Eco-tourism Park, 30/4 Beach.
-                    </p>
-                </div>
-                <!-- Thủ Đức City -->
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Thủ Đức City</h3>
-                    <p class="text-gray-300 text-sm mb-4">A newly established city formed by merging District 2, District 9, and Thủ Đức District, aiming to be an innovation hub and smart city.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Worth visiting:</strong> Thu Thiem Urban Area, Saigon Hi-Tech Park, National University HCMC.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="cuisine" class="py-20 bg-gradient-to-br from-yellow-100 via-pink-50 to-orange-100">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Cuisine</h2>
+    <p class="max-w-2xl mx-auto text-gray-700">From street food to fine dining – explore pho, bánh mì, seafood, and Saigon’s coffee obsession.</p>
+  </div>
+</section>
 
-    <!-- Motorbike Taxi Costs Section -->
-    <section id="transport" class="py-16 bg-gray-800">
-        <div class="container">
-            <h2 class="section-title animate-fade-in animate-delay-1">Navigating Saigon: Motorbike Taxi Costs</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto animate-fade-in animate-delay-2">
-                Motorbike taxis, primarily via apps like GrabBike and Gojek, are the most common and convenient way to get around Ho Chi Minh City. Here's what you need to know about typical costs.
-            </p>
+<section id="tips" class="py-20 bg-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Traveler Tips</h2>
+    <p class="max-w-2xl mx-auto text-gray-700">Visa, SIM cards, etiquette, scams to avoid, and how to stay safe and savvy while exploring.</p>
+  </div>
+</section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card animate-fade-in">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Short Rides (1-3 km)</h3>
-                    <p class="text-gray-300 text-sm mb-4">Ideal for quick trips within a district or to an adjacent one.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Typical Cost:</strong> 15,000 VND - 30,000 VND (~$0.60 - $1.20 USD)
-                    </p>
-                </div>
-                <div class="card animate-fade-in animate-delay-1">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Medium Rides (3-8 km)</h3>
-                    <p class="text-gray-300 text-sm mb-4">Covers trips across a few districts, e.g., District 1 to District 7.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Typical Cost:</strong> 30,000 VND - 60,000 VND (~$1.20 - $2.40 USD)
-                    </p>
-                </div>
-                <div class="card animate-fade-in animate-delay-2">
-                    <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Long Rides (8+ km)</h3>
-                    <p class="text-gray-300 text-sm mb-4">For longer journeys, such as from city center to Thủ Đức City or the airport.</p>
-                    <p class="text-sm text-gray-400">
-                        <strong class="text-purple-300">Typical Cost:</strong> 60,000 VND - 120,000 VND+ (~$2.40 - $5.00+ USD)
-                    </p>
-                </div>
-            </div>
+<section id="tools" class="py-20 bg-gradient-to-bl from-blue-100 via-white to-cyan-100">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Travel Tools</h2>
+    <p class="max-w-2xl mx-auto text-gray-700 mb-6">Use our built-in translator, currency converter, and local weather widget to make your journey smooth.</p>
+    <a href="tools.html" class="bg-cyan-500 text-white px-6 py-3 rounded-full shadow hover:bg-cyan-600 transition">Open Tools</a>
+  </div>
+</section>
 
-            <div class="mt-12 p-8 bg-gray-900 rounded-xl shadow-lg border border-gray-700 animate-fade-in animate-delay-3">
-                <h3 class="text-2xl font-semibold text-white mb-4">When Prices Might Be Higher:</h3>
-                <ul class="list-disc list-inside text-gray-300 space-y-2">
-                    <li><strong class="text-cyan-300">Peak Hours:</strong> During rush hour (e.g., 7-9 AM, 5-7 PM), prices can surge due to high demand.</li>
-                    <li><strong class="text-cyan-300">Heavy Rain:</strong> Rides become more expensive and harder to book during heavy downpours.</li>
-                    <li><strong class="text-cyan-300">Special Events/Holidays:</strong> Fares may increase during major festivals or public holidays.</li>
-                    <li><strong class="text-cyan-300">Dynamic Pricing:</strong> Grab and Gojek use dynamic pricing, so prices can fluctuate based on real-time demand and supply. Always check the app's estimated fare before confirming.</li>
-                </ul>
-                <p class="mt-6 text-lg text-gray-300">
-                    Always use the in-app fare displayed on GrabBike or Gojek. This ensures you pay the correct price and avoids overpaying.
-                </p>
-            </div>
-        </div>
-    </section>
+<section id="megacity" class="py-20 bg-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Saigon: The Megacity</h2>
+    <p class="max-w-2xl mx-auto text-gray-700">Understand the rapid growth of Ho Chi Minh City – infrastructure, economy, innovation, and challenges.</p>
+  </div>
+</section>
 
-    <!-- Call to Action Section -->
-    <section class="py-16 bg-gray-900 text-center">
-        <div class="container animate-fade-in">
-            <h2 class="section-title">Enhance Your Saigon Adventure!</h2>
-            <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-                Ready to dive deeper into the local culture or explore with an expert?
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-                <a href="#" class="btn-primary animate-delay-1">Book a Local Tour</a>
-                <a href="#" class="btn-primary animate-delay-2">Hire a Motorbike Guide</a>
-            </div>
-        </div>
-    </section>
+<section id="healthcare" class="py-20 bg-gradient-to-br from-red-100 via-white to-pink-100">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Healthcare</h2>
+    <p class="max-w-2xl mx-auto text-gray-700">Hospitals, clinics, pharmacies, and how to access healthcare as a foreigner in Vietnam.</p>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm">
-        <div class="container">
-            <p>&copy; 2025 GoSaigon.org. All rights reserved.</p>
-            <p class="mt-2">Connecting you to the heart of Ho Chi Minh City.</p>
-        </div>
-    </footer>
+<section id="living" class="py-20 bg-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Living in Saigon</h2>
+    <p class="max-w-2xl mx-auto text-gray-700">Cost of living, best neighborhoods, finding apartments, and adjusting to daily life in Saigon.</p>
+  </div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-br from-purple-100 via-blue-50 to-yellow-100 text-center">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold gradient-text mb-6">Plan Your Adventure</h2>
+    <p class="max-w-2xl mx-auto text-gray-700 mb-6">Book tours, hire a motorbike guide, or start your custom itinerary.</p>
+    <a href="#" class="bg-purple-500 text-white px-8 py-3 rounded-full shadow hover:bg-purple-600 transition">Get Started</a>
+  </div>
+</section>
 
-        // Mobile menu toggle
-        const menuButton = document.getElementById('menu-button');
-        const navLinks = document.getElementById('nav-links');
+<!-- Footer -->
+<footer class="py-10 bg-white border-t border-gray-200 text-center text-sm text-gray-500">
+  <p>&copy; 2025 GoSaigon.org. Made with ♥ in Vietnam.</p>
+</footer>
 
-        menuButton.addEventListener('click', () => {
-            navLinks.classList.toggle('hidden');
-            navLinks.classList.toggle('flex');
-            navLinks.classList.toggle('flex-col');
-        });
-
-        // Hide mobile menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (!navLinks.classList.contains('hidden') && window.innerWidth < 768) {
-                    navLinks.classList.add('hidden');
-                    navLinks.classList.remove('flex');
-                    navLinks.classList.remove('flex-col');
-                }
-            });
-        });
-
-        // Optional: Animate sections on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                    // Remove animation delay classes to prevent re-triggering
-                    entry.target.classList.remove('animate-delay-1', 'animate-delay-2', 'animate-delay-3');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section > .container, .card, .map-container').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
