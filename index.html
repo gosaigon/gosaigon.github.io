@@ -3,103 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoSaigon.org – Colorful Redesign</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Go Saigon</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .gradient-text {
-      background: linear-gradient(to right, #ff6b6b, #f8e71c, #7ed6df);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
 </head>
-<body class="bg-white text-gray-800">
-
-<!-- Header -->
-<header class="fixed w-full z-50 glass shadow-md">
-  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <a href="#" class="text-2xl font-extrabold gradient-text">GoSaigon.org</a>
-    <div class="space-x-4 hidden md:flex">
-      <a href="#districts" class="text-gray-700 hover:text-pink-500 font-semibold">Districts</a>
-      <a href="#culture" class="text-gray-700 hover:text-green-500 font-semibold">Culture</a>
-      <a href="#cuisine" class="text-gray-700 hover:text-yellow-500 font-semibold">Cuisine</a>
-      <a href="#tips" class="text-gray-700 hover:text-purple-500 font-semibold">Tips</a>
-      <a href="#tools" class="text-gray-700 hover:text-blue-500 font-semibold">Tools</a>
-      <a href="#megacity" class="text-gray-700 hover:text-indigo-500 font-semibold">Megacity</a>
-      <a href="#healthcare" class="text-gray-700 hover:text-red-400 font-semibold">Healthcare</a>
-      <a href="#living" class="text-gray-700 hover:text-teal-500 font-semibold">Living</a>
-      <a href="#contact" class="text-gray-700 hover:text-gray-700 font-semibold">Contact</a>
+<body>
+  <header>
+    <div class="container nav">
+      <h1 class="logo">Go Saigon</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="districts.html">Districts</a></li>
+          <li><a href="travel.html">Travel</a></li>
+          <li><a href="healthcare.html">Healthcare</a></li>
+          <li><a href="protips.html">Pro Tips</a></li>
+          <li><a href="nearby.html">Nearby</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<!-- Hero Section -->
-<section class="pt-24 bg-gradient-to-br from-pink-100 via-yellow-50 to-blue-100 min-h-screen flex items-center justify-center text-center px-6">
-  <div>
-    <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6">Discover Colorful Saigon</h1>
-    <p class="text-lg md:text-xl text-gray-700 max-w-xl mx-auto mb-8">Explore all 22 districts, hidden gems, vibrant culture, and real local tips – designed just for curious explorers.</p>
-    <a href="#districts" class="inline-block bg-pink-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-pink-600 transition">Start Exploring</a>
-  </div>
-</section>
+  <section class="hero">
+    <div class="container">
+      <h2>Welcome to Go Saigon</h2>
+      <p>Your essential guide to living, working, and thriving in Ho Chi Minh City</p>
+      <div class="hero-buttons">
+        <a href="districts.html" class="btn">Explore Districts</a>
+        <a href="tools.html" class="btn secondary">Use Travel Tools</a>
+      </div>
+    </div>
+  </section>
 
-<!-- Districts Section -->
-<section id="districts" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Explore the Districts</h2>
-    <div id="districtsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-  </div>
-</section>
+  <section class="features">
+    <div class="container grid">
+      <div class="feature-box">
+        <h3>🛠️ Tools</h3>
+        <p>Use translation, currency conversion, and weather widgets all in one place.</p>
+      </div>
+      <div class="feature-box">
+        <h3>📍 Districts & Nearby</h3>
+        <p>Explore every district of Saigon plus nearby cities like Vũng Tàu & Bình Dương.</p>
+      </div>
+      <div class="feature-box">
+        <h3>🚖 Travel</h3>
+        <p>Transport options, airport tips, local transit, and how to get around easily.</p>
+      </div>
+      <div class="feature-box">
+        <h3>🏥 Healthcare</h3>
+        <p>Hospitals, clinics, insurance and emergency care — explained clearly.</p>
+      </div>
+      <div class="feature-box">
+        <h3>💡 Pro Tips</h3>
+        <p>Smart hacks and must-know insights for foreigners in Vietnam.</p>
+      </div>
+      <div class="feature-box">
+        <h3>📰 Blog</h3>
+        <p>Personal stories, cultural insight, and updates from around Saigon.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Other Sections... (unchanged from original) -->
+  <section class="districts-preview">
+    <div class="container">
+      <h2>All 22 Districts + Nearby Cities</h2>
+      <div class="grid">
+        <a href="district1.html" class="district-card">District 1</a>
+        <a href="district3.html" class="district-card">District 3</a>
+        <a href="district4.html" class="district-card">District 4</a>
+        <a href="district5.html" class="district-card">District 5</a>
+        <a href="district6.html" class="district-card">District 6</a>
+        <a href="district7.html" class="district-card">District 7</a>
+        <a href="district8.html" class="district-card">District 8</a>
+        <a href="district10.html" class="district-card">District 10</a>
+        <a href="district11.html" class="district-card">District 11</a>
+        <a href="district12.html" class="district-card">District 12</a>
+        <a href="binhtan.html" class="district-card">Bình Tân</a>
+        <a href="binhthanh.html" class="district-card">Bình Thạnh</a>
+        <a href="govap.html" class="district-card">Gò Vấp</a>
+        <a href="phunhuan.html" class="district-card">Phú Nhuận</a>
+        <a href="tanbinh.html" class="district-card">Tân Bình</a>
+        <a href="tanphu.html" class="district-card">Tân Phú</a>
+        <a href="thuduc.html" class="district-card">Thủ Đức City</a>
+        <a href="cuchi.html" class="district-card">Củ Chi</a>
+        <a href="hocmon.html" class="district-card">Hóc Môn</a>
+        <a href="binhchanh.html" class="district-card">Bình Chánh</a>
+        <a href="nhabe.html" class="district-card">Nhà Bè</a>
+        <a href="cangio.html" class="district-card">Cần Giờ</a>
+        <a href="baria.html" class="district-card">Bà Rịa</a>
+        <a href="vungtau.html" class="district-card">Vũng Tàu</a>
+        <a href="binhduong.html" class="district-card">Bình Dương</a>
+      </div>
+    </div>
+  </section>
 
-<!-- Add this script at the end -->
-<script>
-const districtsData = [
-  { id: "district-1", name: "District 1", description: "The commercial and administrative heart of HCMC with historic landmarks.", image: "https://via.placeholder.com/600x400?text=District+1" },
-  { id: "district-3", name: "District 3", description: "Leafy boulevards, colonial architecture, and lively cafes.", image: "https://via.placeholder.com/600x400?text=District+3" },
-  { id: "district-4", name: "District 4", description: "Riverside, seafood, and a mix of old and new Saigon.", image: "https://via.placeholder.com/600x400?text=District+4" },
-  { id: "district-5", name: "District 5", description: "Chinatown (Chợ Lớn) with rich culture and markets.", image: "https://via.placeholder.com/600x400?text=District+5" },
-  { id: "district-6", name: "District 6", description: "Authentic local life with Chinese influence.", image: "https://via.placeholder.com/600x400?text=District+6" },
-  { id: "district-7", name: "District 7", description: "Modern, green, and international: home of Phú Mỹ Hưng.", image: "https://via.placeholder.com/600x400?text=District+7" },
-  { id: "district-8", name: "District 8", description: "Canals, bridges, and a very local Saigon feel.", image: "https://via.placeholder.com/600x400?text=District+8" },
-  { id: "district-10", name: "District 10", description: "Busy, youthful, and full of flower streets and student cafes.", image: "https://via.placeholder.com/600x400?text=District+10" },
-  { id: "district-11", name: "District 11", description: "Home of Đầm Sen Park and quiet, lived-in streets.", image: "https://via.placeholder.com/600x400?text=District+11" },
-  { id: "district-12", name: "District 12", description: "Rapid development meets affordability and space.", image: "https://via.placeholder.com/600x400?text=District+12" },
-  { id: "binh-thanh", name: "Bình Thạnh", description: "Landmark 81, food alleys, and central-local charm.", image: "https://via.placeholder.com/600x400?text=Binh+Thanh" },
-  { id: "phu-nhuan", name: "Phú Nhuận", description: "Laid-back, centrally located, food-lover’s favorite.", image: "https://via.placeholder.com/600x400?text=Phu+Nhuan" },
-  { id: "go-vap", name: "Gò Vấp", description: "A big, bustling district with budget-friendly housing.", image: "https://via.placeholder.com/600x400?text=Go+Vap" },
-  { id: "tan-binh", name: "Tân Bình", description: "Tan Son Nhat Airport + great street food.", image: "https://via.placeholder.com/600x400?text=Tan+Binh" },
-  { id: "tan-phu", name: "Tân Phú", description: "Peaceful and modern, home to Aeon Mall.", image: "https://via.placeholder.com/600x400?text=Tan+Phu" },
-  { id: "thu-duc", name: "Thủ Đức City", description: "Innovation hub formed from Districts 2, 9 & Thủ Đức.", image: "https://via.placeholder.com/600x400?text=Thu+Duc" },
-  { id: "binh-chanh", name: "Bình Chánh", description: "Growing fast on the southwestern edge.", image: "https://via.placeholder.com/600x400?text=Binh+Chanh" },
-  { id: "nha-be", name: "Nhà Bè", description: "Southern suburb with river views and growth.", image: "https://via.placeholder.com/600x400?text=Nha+Be" },
-  { id: "hoc-mon", name: "Hóc Môn", description: "Green space, agriculture, and expanding housing.", image: "https://via.placeholder.com/600x400?text=Hoc+Mon" },
-  { id: "cu-chi", name: "Củ Chi", description: "Cu Chi Tunnels, rice paddies, and history.", image: "https://via.placeholder.com/600x400?text=Cu+Chi" },
-  { id: "can-gio", name: "Cần Giờ", description: "Mangroves, seafood, and beachy escapes.", image: "https://via.placeholder.com/600x400?text=Can+Gio" }
-];
-
-const container = document.getElementById("districtsGrid");
-
-districtsData.forEach(d => {
-  const card = document.createElement("div");
-  card.className = "p-6 rounded-xl shadow bg-gradient-to-br from-blue-100 via-purple-50 to-yellow-100";
-  card.innerHTML = `
-    <img src="${d.image}" alt="${d.name}" class="mb-4 w-full h-48 object-cover rounded" />
-    <h3 class="text-xl font-bold text-purple-700 mb-2">${d.name}</h3>
-    <p class="text-sm text-gray-700">${d.description}</p>
-  `;
-  container.appendChild(card);
-});
-</script>
-
+  <footer>
+    <div class="container footer">
+      <p>© 2025 Go Saigon</p>
+      <div class="socials">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
