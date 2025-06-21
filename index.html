@@ -10,6 +10,8 @@
     body { font-family: 'Poppins', sans-serif; }
     html { scroll-behavior: smooth; }
   </style>
+  <!-- SEO Keywords -->
+  <meta name="keywords" content="Ho Chi Minh City, Saigon, expat guide, digital nomads, travel Vietnam, healthcare Vietnam, Vietnamese districts, GoSaigon, explore Saigon, live in Saigon, move to Saigon, Vietnam travel, Saigon expat, Saigon living">
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-500">
 
@@ -28,12 +30,12 @@
       <a href="/index.html" class="hover:text-red-600">Home</a>
       <a href="/tools.html" class="hover:text-red-600">Tools</a>
       <a href="#districts" class="hover:text-red-600">Districts</a>
-      <a href="/travel.html" class="hover:text-red-600">Travel</a>
+      <a href="/travel.html" class="hover:text-red-600">Travel</a> <!-- Create travel.html if missing -->
       <a href="/healthcare.html" class="hover:text-red-600">Healthcare</a>
-      <a href="/pro-tips.html" class="hover:text-red-600">Pro Tips</a>
-      <a href="/nearby.html" class="hover:text-red-600">Nearby</a>
+      <a href="/pro-tips.html" class="hover:text-red-600">Pro Tips</a> <!-- Create pro-tips.html if missing -->
+      <a href="/nearby.html" class="hover:text-red-600">Nearby</a> <!-- Create nearby.html if missing -->
       <a href="/blog.html" class="hover:text-red-600">Blog</a>
-      <a href="/about.html" class="hover:text-red-600">About</a>
+      <a href="/about.html" class="hover:text-red-600">About</a> <!-- Create about.html if missing -->
       <a href="/contact.html" class="hover:text-red-600">Contact</a>
     </div>
   </nav>
@@ -41,33 +43,13 @@
   <!-- About Section -->
   <section id="about" class="py-16 px-6 max-w-5xl mx-auto animate-slide-up">
     <h2 class="text-3xl font-bold mb-4">Why GoSaigon?</h2>
-    <p class="text-lg">Whether you're a digital nomad, long-term expat, or first-time visitor, GoSaigon.org helps you navigate Ho Chi Minh City with confidence. Learn about each district, get practical healthcare and visa tips, explore nearby destinations, and connect with local insights — all in one place.</p>
+    <p class="text-lg">Whether you're a digital nomad, long-term expat, or first-time visitor, GoSaigon.org helps you navigate Ho Chi Minh City with confidence. Learn about each district, get practical tips, and discover local secrets!</p>
   </section>
 
   <!-- District Section -->
   <section id="districts" class="py-16 bg-gray-50 dark:bg-gray-800 px-6 animate-slide-up">
     <h2 class="text-3xl font-bold text-center mb-10">All Districts & Nearby Cities</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-      <!-- District cards -->
-      <script>
-        const districts = [
-          "District 1", "District 3", "District 4", "District 5", "District 6", "District 7",
-          "District 8", "District 10", "District 11", "District 12", "Bình Tân", "Tân Phú",
-          "Tân Bình", "Phú Nhuận", "Gò Vấp", "Bình Thạnh", "Thủ Đức", "Hóc Môn",
-          "Nhà Bè", "Bình Chánh", "Củ Chi", "Cần Giờ", "Vũng Tàu", "Bình Dương"
-        ];
-        document.write(districts.map(d => {
-          const urlName = d.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replace(/\s+/g, '-');
-          return `
-            <div class='bg-white dark:bg-gray-700 p-4 rounded-lg shadow hover:shadow-lg transition-transform transform hover:-translate-y-1'>
-              <h3 class='text-xl font-semibold mb-2'>${d}</h3>
-              <p class='text-sm'>Your guide to ${d} — attractions, housing, culture, and local life.</p>
-              <a href='/districts/${urlName}.html' class='text-red-600 hover:underline mt-2 block'>Learn More →</a>
-            </div>
-          `;
-        }).join(''));
-      </script>
-    </div>
+    <div id="districts-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"></div>
   </section>
 
   <!-- More Content Preview Section -->
@@ -110,8 +92,7 @@
     });
   </script>
 
-  <!-- SEO Keywords -->
-  <meta name="keywords" content="Ho Chi Minh City, Saigon, expat guide, digital nomads, travel Vietnam, healthcare Vietnam, Vietnamese districts, GoSaigon, explore Saigon, live in Saigon, move to Vietnam, visa Vietnam, expat life HCMC, foreigner in Vietnam, Vũng Tàu, Bình Dương, weekend trips from Saigon, Saigon living costs, Vietnamese culture" />
+  <!-- Districts Cards JS -->
+  <script src="script.js"></script>
 </body>
 </html>
-
