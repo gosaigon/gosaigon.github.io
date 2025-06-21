@@ -14,10 +14,10 @@
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-500">
 
   <!-- Hero Section -->
-  <section class="bg-cover bg-center h-screen flex items-center justify-center text-center px-4" style="background-image: url('hero-image.jpg');">
-    <div class="bg-black bg-opacity-50 p-8 rounded-xl animate-fade-in">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to GoSaigon.org</h1>
-      <p class="text-lg md:text-2xl mb-6">Your complete guide to living, working, and traveling in Ho Chi Minh City</p>
+  <section class="bg-cover bg-center h-screen flex items-center justify-center text-center px-4" style="background-image: url('/images/saigon-skyline.jpg');">
+    <div class="bg-black bg-opacity-60 p-8 rounded-xl animate-fade-in">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Live, Work & Explore in Ho Chi Minh City</h1>
+      <p class="text-lg md:text-2xl mb-6">Discover the real Saigon — from bustling districts to peaceful seaside escapes</p>
       <a href="#districts" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">Explore Districts</a>
     </div>
   </section>
@@ -41,7 +41,7 @@
   <!-- About Section -->
   <section id="about" class="py-16 px-6 max-w-5xl mx-auto animate-slide-up">
     <h2 class="text-3xl font-bold mb-4">Why GoSaigon?</h2>
-    <p class="text-lg">GoSaigon.org is your practical guide for navigating life in Ho Chi Minh City. We provide district overviews, healthcare guidance, travel advice, local tools, and insider tips for residents and tourists alike.</p>
+    <p class="text-lg">Whether you're a digital nomad, long-term expat, or first-time visitor, GoSaigon.org helps you navigate Ho Chi Minh City with confidence. Learn about each district, get practical healthcare and visa tips, explore nearby destinations, and connect with local insights — all in one place.</p>
   </section>
 
   <!-- District Section -->
@@ -56,21 +56,30 @@
           "Tân Bình", "Phú Nhuận", "Gò Vấp", "Bình Thạnh", "Thủ Đức", "Hóc Môn",
           "Nhà Bè", "Bình Chánh", "Củ Chi", "Cần Giờ", "Vũng Tàu", "Bình Dương"
         ];
-        document.write(districts.map(d => `
-          <div class='bg-white dark:bg-gray-700 p-4 rounded-lg shadow hover:shadow-lg transition-transform transform hover:-translate-y-1'>
-            <h3 class='text-xl font-semibold mb-2'>${d}</h3>
-            <p class='text-sm'>Discover key attractions, local tips, housing info, and maps of ${d}.</p>
-            <a href='/districts/${d.toLowerCase().replace(/\s+/g, '-')}.html' class='text-red-600 hover:underline mt-2 block'>Learn More →</a>
-          </div>
-        `).join(''));
+        document.write(districts.map(d => {
+          const urlName = d.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replace(/\s+/g, '-');
+          return `
+            <div class='bg-white dark:bg-gray-700 p-4 rounded-lg shadow hover:shadow-lg transition-transform transform hover:-translate-y-1'>
+              <h3 class='text-xl font-semibold mb-2'>${d}</h3>
+              <p class='text-sm'>Your guide to ${d} — attractions, housing, culture, and local life.</p>
+              <a href='/districts/${urlName}.html' class='text-red-600 hover:underline mt-2 block'>Learn More →</a>
+            </div>
+          `;
+        }).join(''));
       </script>
     </div>
   </section>
 
-  <!-- Placeholder for additional sections -->
+  <!-- More Content Preview Section -->
   <section class="py-16 px-6 max-w-5xl mx-auto animate-slide-up">
-    <h2 class="text-3xl font-bold mb-4">More Coming Soon</h2>
-    <p>Additional homepage sections will include cost of living, safety tips, visa guidance, transport hacks, and expat stories.</p>
+    <h2 class="text-3xl font-bold mb-4">Plan Better with GoSaigon</h2>
+    <ul class="list-disc list-inside text-lg space-y-2">
+      <li>🇻🇳 Visa, customs, and essential travel documents for Vietnam</li>
+      <li>🏥 Navigating public and private healthcare as a foreigner</li>
+      <li>📱 Best apps for transport, food delivery, translation, and safety</li>
+      <li>💡 Pro tips on avoiding scams, saving money, and driving legally</li>
+      <li>🚘 Weekend getaways to beaches, hills, and quiet towns nearby</li>
+    </ul>
   </section>
 
   <!-- Footer -->
@@ -92,7 +101,7 @@
     }
   </style>
 
-  <!-- Dark Mode Toggle Script (optional) -->
+  <!-- Dark Mode Toggle Script -->
   <script>
     document.addEventListener('keydown', function (e) {
       if (e.key === 'd') {
