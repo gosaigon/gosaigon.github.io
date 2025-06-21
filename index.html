@@ -3,113 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Go Saigon</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>GoSaigon.org – Discover Ho Chi Minh City</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <h1 class="logo">Go Saigon</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="districts.html">Districts</a></li>
-          <li><a href="travel.html">Travel</a></li>
-          <li><a href="healthcare.html">Healthcare</a></li>
-          <li><a href="protips.html">Pro Tips</a></li>
-          <li><a href="nearby.html">Nearby</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-500">
 
-  <section class="hero">
-    <div class="container">
-      <h2>Welcome to Go Saigon</h2>
-      <p>Your essential guide to living, working, and thriving in Ho Chi Minh City</p>
-      <div class="hero-buttons">
-        <a href="districts.html" class="btn">Explore Districts</a>
-        <a href="tools.html" class="btn secondary">Use Travel Tools</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center h-screen flex items-center justify-center text-center px-4" style="background-image: url('hero-image.jpg');">
+    <div class="bg-black bg-opacity-50 p-8 rounded-xl animate-fade-in">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to GoSaigon.org</h1>
+      <p class="text-lg md:text-2xl mb-6">Your complete guide to living, working, and traveling in Ho Chi Minh City</p>
+      <a href="#districts" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">Explore Districts</a>
     </div>
   </section>
 
-  <section class="features">
-    <div class="container grid">
-      <div class="feature-box">
-        <h3>🛠️ Tools</h3>
-        <p>Use translation, currency conversion, and weather widgets all in one place.</p>
-      </div>
-      <div class="feature-box">
-        <h3>📍 Districts & Nearby</h3>
-        <p>Explore every district of Saigon plus nearby cities like Vũng Tàu & Bình Dương.</p>
-      </div>
-      <div class="feature-box">
-        <h3>🚖 Travel</h3>
-        <p>Transport options, airport tips, local transit, and how to get around easily.</p>
-      </div>
-      <div class="feature-box">
-        <h3>🏥 Healthcare</h3>
-        <p>Hospitals, clinics, insurance and emergency care — explained clearly.</p>
-      </div>
-      <div class="feature-box">
-        <h3>💡 Pro Tips</h3>
-        <p>Smart hacks and must-know insights for foreigners in Vietnam.</p>
-      </div>
-      <div class="feature-box">
-        <h3>📰 Blog</h3>
-        <p>Personal stories, cultural insight, and updates from around Saigon.</p>
-      </div>
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-100 dark:bg-gray-800 shadow-md py-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4">
+      <a href="/index.html" class="hover:text-red-600">Home</a>
+      <a href="/tools.html" class="hover:text-red-600">Tools</a>
+      <a href="#districts" class="hover:text-red-600">Districts</a>
+      <a href="/travel.html" class="hover:text-red-600">Travel</a>
+      <a href="/healthcare.html" class="hover:text-red-600">Healthcare</a>
+      <a href="/pro-tips.html" class="hover:text-red-600">Pro Tips</a>
+      <a href="/nearby.html" class="hover:text-red-600">Nearby</a>
+      <a href="/blog.html" class="hover:text-red-600">Blog</a>
+      <a href="/about.html" class="hover:text-red-600">About</a>
+      <a href="/contact.html" class="hover:text-red-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 max-w-5xl mx-auto animate-slide-up">
+    <h2 class="text-3xl font-bold mb-4">Why GoSaigon?</h2>
+    <p class="text-lg">GoSaigon.org is your practical guide for navigating life in Ho Chi Minh City. We provide district overviews, healthcare guidance, travel advice, local tools, and insider tips for residents and tourists alike.</p>
+  </section>
+
+  <!-- District Section -->
+  <section id="districts" class="py-16 bg-gray-50 dark:bg-gray-800 px-6 animate-slide-up">
+    <h2 class="text-3xl font-bold text-center mb-10">All Districts & Nearby Cities</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <!-- District cards -->
+      <script>
+        const districts = [
+          "District 1", "District 3", "District 4", "District 5", "District 6", "District 7",
+          "District 8", "District 10", "District 11", "District 12", "Bình Tân", "Tân Phú",
+          "Tân Bình", "Phú Nhuận", "Gò Vấp", "Bình Thạnh", "Thủ Đức", "Hóc Môn",
+          "Nhà Bè", "Bình Chánh", "Củ Chi", "Cần Giờ", "Vũng Tàu", "Bình Dương"
+        ];
+        document.write(districts.map(d => `
+          <div class='bg-white dark:bg-gray-700 p-4 rounded-lg shadow hover:shadow-lg transition-transform transform hover:-translate-y-1'>
+            <h3 class='text-xl font-semibold mb-2'>${d}</h3>
+            <p class='text-sm'>Discover key attractions, local tips, housing info, and maps of ${d}.</p>
+            <a href='/districts/${d.toLowerCase().replace(/\s+/g, '-')}.html' class='text-red-600 hover:underline mt-2 block'>Learn More →</a>
+          </div>
+        `).join(''));
+      </script>
     </div>
   </section>
 
-  <section class="districts-preview">
-    <div class="container">
-      <h2>All 22 Districts + Nearby Cities</h2>
-      <div class="grid">
-        <a href="district1.html" class="district-card">District 1</a>
-        <a href="district3.html" class="district-card">District 3</a>
-        <a href="district4.html" class="district-card">District 4</a>
-        <a href="district5.html" class="district-card">District 5</a>
-        <a href="district6.html" class="district-card">District 6</a>
-        <a href="district7.html" class="district-card">District 7</a>
-        <a href="district8.html" class="district-card">District 8</a>
-        <a href="district10.html" class="district-card">District 10</a>
-        <a href="district11.html" class="district-card">District 11</a>
-        <a href="district12.html" class="district-card">District 12</a>
-        <a href="binhtan.html" class="district-card">Bình Tân</a>
-        <a href="binhthanh.html" class="district-card">Bình Thạnh</a>
-        <a href="govap.html" class="district-card">Gò Vấp</a>
-        <a href="phunhuan.html" class="district-card">Phú Nhuận</a>
-        <a href="tanbinh.html" class="district-card">Tân Bình</a>
-        <a href="tanphu.html" class="district-card">Tân Phú</a>
-        <a href="thuduc.html" class="district-card">Thủ Đức City</a>
-        <a href="cuchi.html" class="district-card">Củ Chi</a>
-        <a href="hocmon.html" class="district-card">Hóc Môn</a>
-        <a href="binhchanh.html" class="district-card">Bình Chánh</a>
-        <a href="nhabe.html" class="district-card">Nhà Bè</a>
-        <a href="cangio.html" class="district-card">Cần Giờ</a>
-        <a href="baria.html" class="district-card">Bà Rịa</a>
-        <a href="vungtau.html" class="district-card">Vũng Tàu</a>
-        <a href="binhduong.html" class="district-card">Bình Dương</a>
-      </div>
-    </div>
+  <!-- Placeholder for additional sections -->
+  <section class="py-16 px-6 max-w-5xl mx-auto animate-slide-up">
+    <h2 class="text-3xl font-bold mb-4">More Coming Soon</h2>
+    <p>Additional homepage sections will include cost of living, safety tips, visa guidance, transport hacks, and expat stories.</p>
   </section>
 
-  <footer>
-    <div class="container footer">
-      <p>© 2025 Go Saigon</p>
-      <div class="socials">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">GitHub</a>
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-200 text-center py-6 mt-16">
+    <p>&copy; 2025 GoSaigon.org – Built for the curious, the expat, and the traveler ❤️</p>
   </footer>
+
+  <!-- Animations -->
+  <style>
+    .animate-fade-in { animation: fadeIn 2s ease-in; }
+    .animate-slide-up { animation: slideUp 1.5s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+
+  <!-- Dark Mode Toggle Script (optional) -->
+  <script>
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'd') {
+        document.documentElement.classList.toggle('dark');
+      }
+    });
+  </script>
 </body>
 </html>
