@@ -1,1 +1,52 @@
+name: Deploy Blog Pages
+
+on:
+  push:
+    branches: [main]  # or your branch name
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+
+    - name: 🏗 Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: 📁 Ensure blog folder exists
+      run: |
+        mkdir -p blog
+        echo "<!-- Blog folder initialized -->" > blog/.init.html
+
+    - name: 📝 Copy blog post files (replace with real paths)
+      run: |
+        cp posts/foreigner-guide-hcmc.html blog/
+        cp posts/top-places-hcmc.html blog/
+        cp posts/transportation-guide-hcmc.html blog/
+        cp posts/healthcare-expats-vietnam.html blog/
+        cp posts/save-money-saigon.html blog/
+
+    - name: 🧭 Generate sitemap.xml
+      run: |
+        echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+        echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+        echo '  <url><loc>https://gosaigon.org/</loc><priority>1.00</priority></url>' >> sitemap.xml
+        echo '  <url><loc>https://gosaigon.org/blog.html</loc><priority>0.80</priority></url>' >> sitemap.xml
+        for f in blog/*.html; do
+          name=$(basename "$f")
+          echo "  <url><loc>https://gosaigon.org/blog/$name</loc></url>" >> sitemap.xml
+        done
+        echo '</urlset>' >> sitemap.xml
+
+    - name: 🚀 Commit and push changes
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add blog sitemap.xml
+        git commit -m "Automated blog deploy and sitemap update" || echo "No changes to commit"
+        git push
 
